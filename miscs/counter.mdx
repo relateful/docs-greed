@@ -1,0 +1,79 @@
+---
+title: "Counter System"
+description: "Create and manage counting channels in your server"
+icon: tally-5
+---
+
+The Counter system allows you to create dedicated channels where members can count numbers sequentially, with automatic validation and tracking.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Send messages
+  - Manage channels
+  - View channels
+  - Add reactions
+
+## Commands
+
+### Enable Counter
+
+<CodeGroup>
+
+```bash Syntax
+,counter enable [channel]
+```
+
+```bash Example
+,counter enable #counting
+```
+
+</CodeGroup>
+
+### Disable Counter
+
+<CodeGroup>
+
+```bash Syntax
+,counter disable [channel]
+```
+
+```bash Example
+,counter disable #counting
+```
+
+</CodeGroup>
+
+## Features
+
+### Counting System
+- Sequential number counting
+- Automatic validation
+- Progress tracking
+- Success/failure indicators
+
+### Channel Management
+- Dedicated counting channels
+- Automatic channel setup
+- Channel-specific counters
+- Easy enable/disable
+
+### User Experience
+- Clear success/failure feedback
+- Progress tracking
+- Automatic message cleanup
+- Reaction-based validation
+
+### Counter Rules
+- Numbers must be sequential
+- Only one number per message
+- No duplicate numbers
+- Automatic validation
+
+<Warning>
+Once a counter is disabled, the counting progress will be reset. Make sure to backup any important counting data before disabling.
+</Warning>
+
+<Note>
+The counter starts at 1 and increments by 1 for each valid count. Only numbers are allowed in counting channels.
+</Note> 

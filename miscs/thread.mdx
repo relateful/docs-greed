@@ -1,0 +1,144 @@
+---
+title: "Thread Management"
+description: "Manage and control threads in your server"
+icon: clipboard-type
+---
+
+The Thread Management system provides comprehensive tools for managing threads in your server, including renaming, locking, archiving, and more.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Manage threads
+  - Send messages
+  - Embed links
+  - View channels
+
+## Commands
+
+### Rename Thread
+
+<CodeGroup>
+
+```bash Syntax
+,thread rename [new_name]
+```
+
+```bash Example
+,thread rename support-ticket-123
+```
+
+</CodeGroup>
+
+### Set Slowmode
+
+<CodeGroup>
+
+```bash Syntax
+,thread slowmode [seconds]
+```
+
+```bash Example
+,thread slowmode 5
+```
+
+</CodeGroup>
+
+### Lock Thread
+
+<CodeGroup>
+
+```bash Syntax
+,thread lock [reason]
+```
+
+```bash Example
+,thread lock resolved
+```
+
+</CodeGroup>
+
+### Unlock Thread
+
+<CodeGroup>
+
+```bash Syntax
+,thread unlock [reason]
+```
+
+```bash Example
+,thread unlock reopened
+```
+
+</CodeGroup>
+
+### Archive Thread
+
+<CodeGroup>
+
+```bash Syntax
+,thread archive [reason]
+```
+
+```bash Example
+,thread archive completed
+```
+
+</CodeGroup>
+
+### Unarchive Thread
+
+<CodeGroup>
+
+```bash Syntax
+,thread unarchive [reason]
+```
+
+```bash Example
+,thread unarchive needs-attention
+```
+
+</CodeGroup>
+
+### Delete Thread
+
+<CodeGroup>
+
+```bash Syntax
+,thread delete [reason]
+```
+
+```bash Example
+,thread delete spam
+```
+
+</CodeGroup>
+
+## Features
+
+### Thread Control
+- Rename threads with custom names
+- Set custom slowmode delays
+- Lock/unlock threads with reasons
+- Archive/unarchive threads
+- Delete threads when needed
+
+### Permission System
+- Requires Manage Threads permission
+- Thread-specific permission checks
+- Reason tracking for all actions
+- Audit log integration
+
+### Thread States
+- Active threads
+- Locked threads
+- Archived threads
+- Slowmode-enabled threads
+
+<Warning>
+Deleting a thread is permanent and cannot be undone. Make sure you have a backup of important information before deleting.
+</Warning>
+
+<Note>
+All thread management commands can be used in the thread itself or by specifying the thread as an argument.
+</Note> 

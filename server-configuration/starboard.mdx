@@ -1,0 +1,143 @@
+---
+title: "Starboard"
+description: "Create a collection of highly-reacted messages in a dedicated channel with Greed's Starboard feature"
+icon: star
+---
+
+The Starboard feature allows you to create a collection of highly-reacted messages in a dedicated channel. When messages receive enough reactions (meeting the threshold), they are automatically posted to the starboard channel. This is perfect for highlighting community favorites, important announcements, or memorable moments.
+
+## Requirements
+
+- Server must have at least one text channel for the starboard
+- Bot must have permissions to:
+  - Read messages
+  - Send messages
+  - Add reactions
+  - Manage messages (for editing/updating starboard entries)
+  - View channels
+  - Read message history
+
+## Add a Starboard
+
+To create a new starboard channel:
+
+<CodeGroup>
+
+```bash Syntax
+,starboard add (channel) (emoji) (threshold)
+```
+
+```bash Example
+,starboard add #starboard ⭐ 5
+,starboard add #memes 🤡 3
+```
+
+</CodeGroup>
+
+- `channel`: The channel where starboard messages will be posted
+- `emoji`: The reaction emoji to track (can be any valid emoji)
+- `threshold`: Minimum number of reactions required to appear in starboard
+
+## List Starboards
+
+View all starboards currently set up in your server:
+
+<CodeGroup>
+
+```bash Syntax
+,starboard list
+```
+
+```bash Example
+,starboard list
+```
+
+</CodeGroup>
+
+This will show all starboard channels, their associated emojis, and reaction thresholds.
+
+## Remove a Starboard
+
+To remove a starboard:
+
+<CodeGroup>
+
+```bash Syntax
+,starboard remove (channel) (emoji)
+```
+
+```bash Example
+,starboard remove #starboard ⭐
+```
+
+</CodeGroup>
+
+## Ignore Channels
+
+You can prevent certain channels from being added to the starboard:
+
+<CodeGroup>
+
+```bash Syntax
+,starboard ignore (channel)
+,starboard unignore (channel)
+```
+
+```bash Example
+,starboard ignore #announcements
+,starboard unignore #announcements
+```
+
+</CodeGroup>
+
+## Move Starboard
+
+To move a starboard to a different channel:
+
+<CodeGroup>
+
+```bash Syntax
+,starboard move (emoji) (channel)
+```
+
+```bash Example
+,starboard move ⭐ #new-starboard
+```
+
+</CodeGroup>
+
+## Special Features
+
+### Star Emoji Progression
+
+When using the ⭐ emoji, the starboard will automatically upgrade the emoji based on reaction count:
+- 0-4 reactions: ⭐
+- 5-9 reactions: 🌟
+- 10-24 reactions: 💫
+- 25+ reactions: ✨
+
+### Message Format
+
+Starboard entries include:
+- Original message content
+- Author information
+- Channel source
+- Jump link to original message
+- Reaction count
+- Attached images/videos
+- Reply context (if the message was a reply)
+
+### Batch Processing
+
+The starboard uses a batch processing system to handle reactions efficiently:
+- Reactions are queued and processed every 5 seconds
+- Messages are processed in chunks of 5 to prevent rate limiting
+- Updates are batched to minimize API calls
+
+<Note>
+Starboard messages are automatically updated when reaction counts change, and they're removed if the reaction count falls below the threshold.
+</Note>
+
+<Warning>
+Deleting a starboard channel will automatically remove its configuration. Make sure to properly remove starboards using the remove command before deleting channels.
+</Warning>

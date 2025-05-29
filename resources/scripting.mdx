@@ -1,0 +1,206 @@
+---
+title: "Script System"
+description: "Create dynamic messages with embeds, buttons, and more"
+icon: braces
+---
+
+The Script system allows you to create dynamic messages with embeds, buttons, and stickers using a simple syntax. You can also use our interactive UI at [greed.best/embed](https://greed.best/embed) to create scripts visually.
+
+<Note>
+The interactive UI at greed.best/embed provides a user-friendly way to create scripts without needing to learn the syntax.
+</Note>
+
+## Basic Syntax
+
+Scripts use a simple syntax with curly braces to define different components:
+
+```bash
+{content: Your message here}
+{embed}
+{title: Your Title}
+{description: Your description}
+```
+
+<Warning>
+Each component must be on a new line for proper parsing.
+</Warning>
+
+## Message Components
+
+### Content
+
+The basic text content of your message:
+
+```bash
+{content: Hello, {user.mention}!}
+```
+
+<Note>
+You can use variables like {user.mention} to reference the user the message is being sent to.
+</Note>
+
+### Embeds
+
+Create rich embeds with various components:
+
+```bash
+{embed}
+{color: #FF0000}
+{title: Welcome Message}
+{description: Welcome to our server!}
+{thumbnail: {user.avatar}}
+{image: https://example.com/image.png}
+{footer: Server Name && https://example.com/icon.png}
+{author: name:Bot Name && icon:https://example.com/bot.png && url:https://example.com}
+```
+
+<Note>
+The color can be specified in hex format (with or without #) or as a decimal number.
+</Note>
+
+### Fields
+
+Add fields to your embed:
+
+```bash
+{field: Field Name && Field Value && inline}
+```
+
+<Warning>
+Fields must include both a name and value, separated by &&. The inline parameter is optional.
+</Warning>
+
+### Buttons
+
+Add interactive buttons to your message:
+
+```bash
+{button: label:Click Me && url:https://example.com && emoji:🎉 && style:link && disabled}
+```
+
+Available button styles:
+- link (default)
+- primary
+- secondary
+- success
+- danger
+
+<Note>
+For link buttons, you must provide a URL. Other button types require a custom_id.
+</Note>
+
+### Stickers
+
+Add stickers to your message:
+
+```bash
+{sticker: sticker_name}
+```
+
+<Warning>
+The sticker must exist in your server or be a standard Discord sticker.
+</Warning>
+
+## Variables
+
+The script system supports various variables that are automatically replaced:
+
+### User Variables
+- `{user}` - User's name
+- `{user.mention}` - User mention
+- `{user.name}` - User's username
+- `{user.avatar}` - User's avatar URL
+- `{user.created_at}` - Account creation date
+- `{user.joined_at}` - Server join date
+
+### Server Variables
+- `{guild.name}` - Server name
+- `{guild.count}` - Member count
+- `{guild.id}` - Server ID
+- `{guild.created_at}` - Server creation date
+- `{guild.boost_count}` - Number of boosts
+- `{guild.booster_count}` - Number of boosters
+- `{guild.boost_tier}` - Server boost level
+- `{guild.icon}` - Server icon URL
+- `{guild.vanity}` - Vanity URL code
+
+<Note>
+Server variables are only available when the message is being sent in a server context. You can view the rest of the variables in [/resources/variables](/resources/variables).
+</Note>
+
+## Examples
+
+### Welcome Message
+```bash
+{embed}
+{color: #5865F2}
+{title: Welcome to {guild.name}!}
+{description: Hello {user.mention}, welcome to our server! You are member #{guild.count}.}
+{thumbnail: {user.avatar}}
+{field: Account Created && {user.created_at} && inline}
+{field: Server Created && {guild.created_at} && inline}
+{footer: {guild.name} && {guild.icon}}
+```
+
+### Announcement
+```bash
+{embed}
+{color: #57F287}
+{title: Server Update}
+{description: We've made some changes to the server!}
+{field: New Features && • Added new channels\n• Updated rules\n• New roles && inline}
+{field: Coming Soon && • More features\n• Special events\n• Community activities && inline}
+{button: label:Learn More && url:https://example.com && style:primary}
+{button: label:Join Support && url:https://discord.gg/support && style:secondary}
+```
+
+### Error Message
+```bash
+{embed}
+{color: #ED4245}
+{title: Error Occurred}
+{description: An error occurred while processing your request.}
+{field: Error Code && 404 && inline}
+{field: Status && Not Found && inline}
+{footer: Please try again later}
+```
+
+<Warning>
+Embeds have a maximum size limit. Make sure your content fits within Discord's limits:
+- Title: 256 characters
+- Description: 4096 characters
+- Field name: 256 characters
+- Field value: 1024 characters
+- Footer text: 2048 characters
+- Total embed: 6000 characters
+</Warning>
+
+## Best Practices
+
+1. **Use Variables**: Take advantage of the built-in variables to create dynamic content.
+
+2. **Organize Content**: Use fields to organize information in a clear, readable way.
+
+3. **Visual Hierarchy**: Use colors, titles, and formatting to create a clear visual hierarchy.
+
+4. **Interactive Elements**: Add buttons when you want users to take action.
+
+5. **Error Handling**: Always include error messages that are clear and helpful.
+
+<Note>
+You can use the interactive UI at greed.best/embed to preview your scripts before using them.
+</Note>
+
+## Common Issues
+
+1. **Syntax Errors**: Make sure all components are properly formatted with curly braces.
+
+2. **Missing Variables**: Check that all variables exist in the current context.
+
+3. **Size Limits**: Be aware of Discord's size limits for embeds and messages.
+
+4. **Button Configuration**: Ensure buttons have all required parameters.
+
+<Warning>
+Always test your scripts in a safe environment before using them in production.
+</Warning>

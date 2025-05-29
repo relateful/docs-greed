@@ -1,55 +1,115 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+  "theme": "almond",
+  "name": "greed Documentation",
+  "icons": { 
+    "library": "lucide"
   },
-  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#B3A4C8",
+    "light": "#A08EB3",
+    "dark": "#221F27"
+  },
+  "favicon": "/images/pages/favicon.svg",
   "navigation": {
-    "tabs": [
+    "dropdowns": [
       {
-        "tab": "Guides",
+        "dropdown": "Documentation",
+        "icon": "book-open",
         "groups": [
           {
             "group": "Get Started",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "quickstart"
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Security",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "security/setup",
+              "security/antinuke",
+              "security/antiraid",
+              "security/automod",
+              "security/fake-permissions"
+            ]
+          },
+          {
+            "group": "Server Configuration",
+            "pages": [
+              {
+                "group": "System",
+                "icon": "send",
+                "pages": [
+                  "server-configuration/system/welcome-message",
+                  "server-configuration/system/leave-message",
+                  "server-configuration/system/ping-on-join",
+                  "server-configuration/system/boost"
+                ]
+              },
+              {
+                "group": "Responders",
+                "icon": "zap",
+                "pages": [
+                  "server-configuration/responders/auto",
+                  "server-configuration/responders/react"
+                ]
+              },
+              "server-configuration/starboard",
+              "server-configuration/voicemaster",
+              "server-configuration/tracking",
+              "server-configuration/levels",
+              "server-configuration/logging",
+              "server-configuration/bump-reminder",
+              "server-configuration/auto-pfp",
+              "server-configuration/alias",
+              "server-configuration/join-to-leave",
+              "server-configuration/reaction-role",
+              "server-configuration/restriction",
+              "server-configuration/tickets"
+            ]
+          },
+          {
+            "group": "Miscellaneous",
+            "pages": [
+              {
+                "group": "Base Commands",
+                "icon": "terminal",
+                "pages": [
+                  "miscs/base-commands/afk",
+                  "miscs/base-commands/snipe",
+                  "miscs/base-commands/birthday"
+                ]
+              },
+              "miscs/counter",
+              "miscs/booster-role",
+              "miscs/reminder",
+              "miscs/thread",
+              "miscs/disable",
+              "miscs/giveaway",
+              "miscs/confessions",
+              "miscs/emojis",
+              "miscs/wordstats"
+            ]
+          },
+          {
+            "group": "Resources",
+            "pages": [
+              "resources/scripting",
+              "resources/variables",
+              "resources/permissions"
             ]
           }
         ]
       },
       {
-        "tab": "API Reference",
+        "dropdown": "Dashboard",
+        "icon": "terminal",
         "groups": [
           {
-            "group": "API Documentation",
+            "group": "Coming soon",
             "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint Examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "dashboard/coming-soon"
             ]
           }
         ]
@@ -58,45 +118,44 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Commands",
+          "href": "https://greed.best/commands",
+          "icon": "gauge"
         },
         {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
+          "anchor": "Discord",
+          "href": "https://discord.gg/greedbot",
+          "icon": "discord"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Zelfur.gg",
+          "href": "https://zelfur.gg",
+          "icon": "rss"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/images/pages/favicon.svg",
+    "dark": "/images/pages/favicon.svg"
   },
   "navbar": {
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "https://discord.gg/greedbot"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Commands",
+      "href": "https://greed.best/commands"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "github": "https://github.com/greedbest",
+      "discord": "https://discord.gg/greedbot"
     }
   }
 }

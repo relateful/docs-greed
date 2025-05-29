@@ -1,0 +1,159 @@
+---
+title: "Word Statistics"
+description: "Track and analyze word usage in your server"
+icon: chart-area
+---
+
+The Word Statistics system allows you to track and analyze word usage across your server, with features for custom commands, channel filtering, and detailed statistics.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Send messages
+  - Embed links
+  - View channels
+  - Read message history
+
+## Setup
+
+### Enable Word Statistics
+
+<CodeGroup>
+
+```bash Syntax
+,wordstats stats_enable
+```
+
+```bash Example
+,wordstats stats_enable
+```
+
+</CodeGroup>
+
+### Disable Word Statistics
+
+<CodeGroup>
+
+```bash Syntax
+,wordstats wordstats_disable
+```
+
+```bash Example
+,wordstats wordstats_disable
+```
+
+</CodeGroup>
+
+## Commands
+
+### View Statistics
+
+<CodeGroup>
+
+```bash Syntax
+,wordstats stats [word] [user]
+```
+
+```bash Example
+,wordstats stats hello @user
+```
+
+</CodeGroup>
+
+### View Top Users
+
+<CodeGroup>
+
+```bash Syntax
+,wordstats top [word] [limit]
+```
+
+```bash Example
+,wordstats top hello 10
+```
+
+</CodeGroup>
+
+### Channel Management
+
+<CodeGroup>
+
+```bash Syntax
+,wordstats whitelist [channel]
+,wordstats blacklist [channel]
+,wordstats remove_whitelist [channel]
+,wordstats remove_blacklist [channel]
+```
+
+```bash Example
+,wordstats whitelist #general
+,wordstats blacklist #off-topic
+```
+
+</CodeGroup>
+
+### Bot Message Counting
+
+<CodeGroup>
+
+```bash Syntax
+,wordstats bots [true/false]
+```
+
+```bash Example
+,wordstats bots true
+```
+
+</CodeGroup>
+
+### Custom Commands
+
+<CodeGroup>
+
+```bash Syntax
+,wordstats command add [command] [word]
+,wordstats command remove [command]
+,wordstats command list
+```
+
+```bash Example
+,wordstats command add fword fuck
+,wordstats command remove fword
+,wordstats command list
+```
+
+</CodeGroup>
+
+## Features
+
+### Word Tracking
+- Track word usage per user
+- Track word usage per server
+- Last used timestamp
+- Usage count statistics
+
+### Channel Filtering
+- Whitelist specific channels
+- Blacklist specific channels
+- Bot message filtering
+- Channel-specific statistics
+
+### Custom Commands
+- Create custom word tracking commands
+- Server-specific commands
+- Command management
+- Usage tracking
+
+### Statistics Display
+- User-specific stats
+- Server-wide stats
+- Top users list
+- Usage history
+
+<Warning>
+Word statistics are case-insensitive and track exact word matches only.
+</Warning>
+
+<Note>
+Custom commands must be unique and cannot conflict with existing bot commands.
+</Note> 

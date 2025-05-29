@@ -1,0 +1,47 @@
+---
+title: "AFK System"
+description: "Set an AFK status to let others know you're away"
+icon: pen-off
+---
+
+The AFK (Away From Keyboard) system allows users to set a status message when they're going to be away from Discord.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Send messages
+  - Embed links
+  - View channels
+
+## Commands
+
+### Set AFK Status
+
+<CodeGroup>
+
+```bash Syntax
+,afk [status]
+```
+
+```bash Example
+,afk going to sleep
+,afk at work
+```
+
+</CodeGroup>
+
+<Note>
+The status message is optional. If not provided, it will default to "AFK".
+</Note>
+
+## Features
+
+### Status Management
+- Set custom AFK status messages
+- Status is automatically removed when you return
+- Status is visible to all server members
+- Maximum status length of 25 characters
+
+<Warning>
+Your AFK status will be automatically removed when you send a message in any channel.
+</Warning> 

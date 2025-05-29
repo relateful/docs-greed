@@ -1,0 +1,109 @@
+---
+title: "Command Disable"
+description: "Disable specific commands in your server or channels"
+icon: shield-ban
+---
+
+The Command Disable system allows server administrators to disable specific commands either server-wide or in specific channels.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Send messages
+  - Embed links
+  - View channels
+- User must have Manage Server permission
+
+## Commands
+
+### Disable Command
+
+<CodeGroup>
+
+```bash Syntax
+,disable add [command] [channel]
+```
+
+```bash Example
+,disable add ping
+,disable add ban #moderation
+```
+
+</CodeGroup>
+
+### Enable Command
+
+<CodeGroup>
+
+```bash Syntax
+,disable remove [command] [channel]
+```
+
+```bash Example
+,disable remove ping
+,disable remove ban #moderation
+```
+
+</CodeGroup>
+
+### List Disabled Commands
+
+<CodeGroup>
+
+```bash Syntax
+,disable list
+```
+
+```bash Example
+,disable list
+```
+
+</CodeGroup>
+
+### Reset All Disabled Commands
+
+<CodeGroup>
+
+```bash Syntax
+,disable reset
+```
+
+```bash Example
+,disable reset
+```
+
+</CodeGroup>
+
+## Features
+
+### Command Control
+- Disable commands server-wide
+- Disable commands in specific channels
+- Track who disabled each command
+- Record when commands were disabled
+
+### Channel Management
+- Channel-specific command restrictions
+- Multiple channel support
+- Channel permission inheritance
+- Easy channel targeting
+
+### Security Features
+- Administrator permission required
+- Command whitelist support
+- Audit logging
+- Confirmation for dangerous actions
+
+### Protected Commands
+- Cannot disable the disable command
+- Cannot disable the enable command
+- Cannot disable the help command
+- System command protection
+
+<Warning>
+Resetting all disabled commands is permanent and cannot be undone. Make sure you want to remove all restrictions before using the reset command.
+</Warning>
+
+<Note>
+Disabled commands will still be visible in the help menu but will show as disabled when attempted to be used.
+</Note> 

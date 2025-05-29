@@ -1,0 +1,87 @@
+---
+title: "Alias"
+description: "Create custom command aliases to simplify command usage in your server"
+icon: chart-no-axes-gantt
+---
+
+The Alias feature allows you to create custom shortcuts for existing commands, making them easier to use and remember.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Send messages
+  - Embed links
+  - View channels
+
+## Commands
+
+### Add Alias
+
+<CodeGroup>
+
+```bash Syntax
+,alias add <command>, <alias>
+```
+
+```bash Example
+,alias add ban, byebye
+,alias add kick, yeet
+```
+
+</CodeGroup>
+
+### Remove Alias
+
+<CodeGroup>
+
+```bash Syntax
+,alias remove <alias>
+```
+
+```bash Example
+,alias remove byebye
+```
+
+</CodeGroup>
+
+### List Aliases
+
+<CodeGroup>
+
+```bash Syntax
+,alias list
+```
+
+```bash Example
+,alias list
+```
+
+</CodeGroup>
+
+## Features
+
+### Command Matching
+- Supports fuzzy matching for command names
+- Automatically suggests similar commands if exact match not found
+- Preserves command arguments and options
+
+### Alias Rules
+- Cannot create aliases for existing commands
+- Cannot create aliases that conflict with other aliases
+- Aliases are server-specific
+- Supports both regular commands and command groups
+
+### Usage Examples
+- Create shorter versions of long commands
+- Create more intuitive names for complex commands
+- Create server-specific command variations
+
+<Note>
+- Aliases are processed before command execution
+- Command permissions still apply to aliases
+- Aliases can be used with command arguments
+</Note>
+
+<Warning>
+Make sure to use unique aliases that don't conflict with existing commands or other aliases.
+</Warning> 

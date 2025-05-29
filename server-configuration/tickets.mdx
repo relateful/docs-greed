@@ -1,0 +1,191 @@
+---
+title: "Tickets"
+description: "Create and manage support tickets in your server"
+icon: tickets
+---
+
+# Tickets
+
+The Tickets system allows you to create a support ticket system with customizable topics, roles, and categories.
+
+<Note>
+The bot requires the **Manage Channels** permission to create and manage tickets.
+</Note>
+
+## Setup
+
+### Basic Setup
+
+To set up the ticket system, use the following command:
+
+```bash
+,ticket setup #channel
+```
+
+<Warning>
+You must have the **Manage Server** permission to set up tickets.
+</Warning>
+
+### Customizing the Panel
+
+You can customize the ticket panel using the following flags:
+
+```bash
+,ticket setup #channel --code="{embed}{color: #2b2d31}$v{title: Create a ticket}$v{description: Click the button below to create a ticket}"
+```
+
+<Note>
+The code parameter uses the Script system syntax. Visit [greed.best/embed](https://greed.best/embed) to create your embed visually.
+</Note>
+
+### Support Role
+
+Set a default support role for tickets:
+
+```bash
+,ticket support @role
+```
+
+<Note>
+This role will have access to:
+- Tickets created without a topic
+- Topic tickets that have no specific roles assigned
+</Note>
+
+### Category
+
+Set a category where tickets will be created:
+
+```bash
+,ticket category #category
+```
+
+## Ticket Topics
+
+### Adding Topics
+
+Add topics that users can select when creating a ticket:
+
+```bash
+,ticket topics
+```
+
+<Note>
+This will open an interactive menu where you can:
+- Add new topics
+- Remove existing topics
+- Manage topic settings
+</Note>
+
+### Topic Settings
+
+For each topic, you can configure:
+- Access roles
+- Category channel
+- Description
+
+<Warning>
+If a topic has no specific roles assigned, the default support role will have access.
+</Warning>
+
+## Managing Tickets
+
+### Adding Users
+
+Add a user to a ticket:
+
+```bash
+,ticket add @user
+```
+
+<Note>
+The user will be able to view and send messages in the ticket.
+</Note>
+
+### Removing Users
+
+Remove a user from a ticket:
+
+```bash
+,ticket remove @user
+```
+
+<Warning>
+The user will lose access to the ticket after being removed.
+</Warning>
+
+### Renaming Tickets
+
+Rename a ticket channel:
+
+```bash
+,ticket rename new-name
+```
+
+### Closing Tickets
+
+Close a ticket:
+
+```bash
+,ticket close
+```
+
+<Warning>
+The ticket channel will be deleted after 5 seconds.
+</Warning>
+
+## Settings
+
+### View Settings
+
+Check your ticket settings:
+
+```bash
+,ticket settings
+```
+
+This will show:
+- Support role
+- Channel category
+- Number of topics
+- Opening ticket embed
+
+### Reset System
+
+Reset the ticket system:
+
+```bash
+,ticket reset
+```
+
+<Warning>
+This will disable all existing ticket panels and remove all ticket configurations.
+</Warning>
+
+## Best Practices
+
+1. **Organize Topics**: Create clear, specific topics to help users select the right category.
+
+2. **Role Management**: Assign appropriate roles to topics to ensure the right staff members have access.
+
+3. **Clear Instructions**: Use the ticket panel embed to provide clear instructions for users.
+
+4. **Regular Maintenance**: Periodically check and update your ticket settings and topics.
+
+<Note>
+You can use the interactive UI at greed.best/embed to create beautiful ticket panels.
+</Note>
+
+## Common Issues
+
+1. **Missing Permissions**: Ensure the bot has the **Manage Channels** permission.
+
+2. **Role Hierarchy**: Make sure the bot's role is above the support role.
+
+3. **Category Access**: Verify the bot has access to the ticket category.
+
+4. **Panel Updates**: Use `,ticket send` to update the ticket panel without changing settings.
+
+<Warning>
+Always test the ticket system in a safe environment before deploying it to your main server.
+</Warning> 

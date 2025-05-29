@@ -1,0 +1,95 @@
+---
+title: "Reaction Roles"
+description: "Create interactive role selection menus using reactions"
+icon: smile-plus
+---
+
+The Reaction Roles feature allows you to create interactive role selection menus where users can get roles by reacting to messages with specific emojis.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Manage roles
+  - Add reactions
+  - View channels
+  - Send messages
+  - Embed links
+
+## Basic Commands
+
+### Add Reaction Role
+
+<CodeGroup>
+
+```bash Syntax
+,reactionrole add [message] [emoji] [role]
+```
+
+```bash Example
+,reactionrole add #roles :verified: @Verified
+,reactionrole add 123456789 :star: @Member
+```
+
+</CodeGroup>
+
+<Note>
+You can reply to a message or provide a message ID/link. The bot will automatically add the reaction to the message.
+</Note>
+
+### Remove Reaction Role
+
+<CodeGroup>
+
+```bash Syntax
+,reactionrole remove [message] [emoji]
+```
+
+```bash Example
+,reactionrole remove #roles :verified:
+```
+
+</CodeGroup>
+
+### List Reaction Roles
+
+<CodeGroup>
+
+```bash Syntax
+,reactionrole list
+```
+
+```bash Example
+,reactionrole list
+```
+
+</CodeGroup>
+
+### Clear All Reaction Roles
+
+<CodeGroup>
+
+```bash Syntax
+,reactionrole clear
+```
+
+```bash Example
+,reactionrole clear
+```
+
+</CodeGroup>
+
+## Features
+
+### Reaction Role System
+- Supports both default and custom emojis
+- Works with message links and IDs
+- Automatically adds reactions to messages
+- Removes roles when reactions are removed
+
+<Warning>
+Make sure the bot's role is higher than the roles it's trying to assign. If the bot's role is lower, it won't be able to assign roles.
+</Warning>
+
+<Note>
+The bot will automatically remove roles when users remove their reactions, maintaining role synchronization.
+</Note> 

@@ -1,0 +1,176 @@
+---
+title: "AntiNuke"
+description: "Protect your server from malicious actions and unauthorized changes"
+icon: fingerprint
+---
+
+The AntiNuke system provides comprehensive protection against malicious actions in your server, including role management, channel modifications, webhook creation, and more.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Administrator
+  - View audit logs
+  - Manage roles
+  - Manage channels
+  - Ban members
+  - Kick members
+  - Manage webhooks
+
+## Setup
+
+### Enable AntiNuke
+
+<CodeGroup>
+
+```bash Syntax
+,antinuke enable
+```
+
+```bash Example
+,antinuke enable
+```
+
+</CodeGroup>
+
+### Set Punishment
+
+<CodeGroup>
+
+```bash Syntax
+,antinuke punishment [ban/kick/strip]
+```
+
+```bash Example
+,antinuke punishment ban
+```
+
+</CodeGroup>
+
+## Commands
+
+### Module Management
+
+<CodeGroup>
+
+```bash Syntax
+,antinuke [module] [true/false]
+```
+
+```bash Example
+,antinuke botadd true
+,antinuke role true
+,antinuke channel true
+,antinuke webhooks true
+,antinuke guild true
+,antinuke prune true
+,antinuke kick true
+,antinuke ban true
+```
+
+</CodeGroup>
+
+### Threshold Settings
+
+<CodeGroup>
+
+```bash Syntax
+,antinuke threshold [module] [number]
+```
+
+```bash Example
+,antinuke threshold bot_add 10
+```
+
+</CodeGroup>
+
+### Whitelist Management
+
+<CodeGroup>
+
+```bash Syntax
+,antinuke whitelist [user]
+,antinuke whitelisted
+```
+
+```bash Example
+,antinuke whitelist @user
+,antinuke whitelisted
+```
+
+</CodeGroup>
+
+### Admin Management
+
+<CodeGroup>
+
+```bash Syntax
+,antinuke trust [user]
+,antinuke trusted
+```
+
+```bash Example
+,antinuke trust @user
+,antinuke trusted
+```
+
+</CodeGroup>
+
+### View Settings
+
+<CodeGroup>
+
+```bash Syntax
+,antinuke settings
+,antinuke modules
+```
+
+```bash Example
+,antinuke settings
+,antinuke modules
+```
+
+</CodeGroup>
+
+## Features
+
+### Protection Modules
+- Bot addition prevention
+- Role modification protection
+- Channel modification protection
+- Webhook creation prevention
+- Guild settings protection
+- Member pruning prevention
+- Kick protection
+- Ban protection
+
+### Security Features
+- Action thresholds
+- Whitelist system
+- Admin management
+- Automatic punishment
+- Audit log monitoring
+- State restoration
+- Rate limiting
+
+### Punishment System
+- Ban option
+- Kick option
+- Role strip option
+- Automatic cleanup
+- Action reversal
+
+### Monitoring
+- Detailed logging
+- Action tracking
+- Threshold monitoring
+- State tracking
+- Audit log analysis
+
+<Warning>
+AntiNuke requires administrator permissions to function properly. Make sure the bot has all necessary permissions.
+</Warning>
+
+<Note>
+The threshold system allows you to set how many actions can be performed before punishment is applied. Set to 0 to punish immediately.
+</Note> 

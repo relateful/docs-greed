@@ -1,0 +1,204 @@
+---
+title: "Emoji Management"
+description: "Manage server emojis and stickers with advanced features"
+icon: smile
+---
+
+The Emoji Management system provides comprehensive tools for managing server emojis and stickers, including stealing, adding, removing, and organizing emojis.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Manage emojis and stickers
+  - Send messages
+  - Embed links
+  - View channels
+
+## Commands
+
+### Emoji Steal
+
+<CodeGroup>
+
+```bash Syntax
+,emoji steal [emoji]
+```
+
+```bash Example
+,emoji steal :emoji:
+```
+
+</CodeGroup>
+
+### Add Multiple Emojis
+
+<CodeGroup>
+
+```bash Syntax
+,emoji add [emojis]
+```
+
+```bash Example
+,emoji add :emoji1: :emoji2:
+```
+
+</CodeGroup>
+
+### Add Emoji from Image
+
+<CodeGroup>
+
+```bash Syntax
+,emoji image [name]
+```
+
+```bash Example
+,emoji image happy
+```
+
+</CodeGroup>
+
+### Remove Emoji
+
+<CodeGroup>
+
+```bash Syntax
+,emoji remove [emoji]
+```
+
+```bash Example
+,emoji remove :emoji:
+```
+
+</CodeGroup>
+
+### Rename Emoji
+
+<CodeGroup>
+
+```bash Syntax
+,emoji rename [emoji] [new_name]
+```
+
+```bash Example
+,emoji rename :sad: megasad
+```
+
+</CodeGroup>
+
+### Remove Duplicates
+
+<CodeGroup>
+
+```bash Syntax
+,emoji removeduplicates
+```
+
+```bash Example
+,emoji removeduplicates
+```
+
+</CodeGroup>
+
+## Sticker Commands
+
+### Add Sticker
+
+<CodeGroup>
+
+```bash Syntax
+,sticker add [name]
+```
+
+```bash Example
+,sticker add happy_sticker
+```
+
+</CodeGroup>
+
+### Remove Sticker
+
+<CodeGroup>
+
+```bash Syntax
+,sticker remove [sticker]
+```
+
+```bash Example
+,sticker remove dumb_sticker
+```
+
+</CodeGroup>
+
+### Rename Sticker
+
+<CodeGroup>
+
+```bash Syntax
+,sticker rename [sticker] [new_name]
+```
+
+```bash Example
+,sticker rename dumb_sticker new_name
+```
+
+</CodeGroup>
+
+### Clean Stickers
+
+<CodeGroup>
+
+```bash Syntax
+,sticker clean
+```
+
+```bash Example
+,sticker clean
+```
+
+</CodeGroup>
+
+### Tag Stickers
+
+<CodeGroup>
+
+```bash Syntax
+,sticker tag
+```
+
+```bash Example
+,sticker tag
+```
+
+</CodeGroup>
+
+## Features
+
+### Emoji Management
+- Steal emojis from other servers
+- Add multiple emojis at once
+- Add emojis from images
+- Remove and rename emojis
+- Remove duplicate emojis
+- Automatic image optimization
+
+### Sticker Management
+- Add stickers from images
+- Remove and rename stickers
+- Clean vanity URLs from stickers
+- Tag stickers with server vanity URL
+- Automatic image compression
+
+### Image Processing
+- Automatic format conversion
+- Size optimization
+- Quality adjustment
+- Format validation
+
+<Warning>
+The bot will automatically optimize images to meet Discord's size requirements. Some quality loss may occur during compression.
+</Warning>
+
+<Note>
+The server must have available emoji/sticker slots to add new ones. The bot will respect server limits.
+</Note> 

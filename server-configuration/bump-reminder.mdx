@@ -1,0 +1,170 @@
+---
+title: "Bump Reminder"
+description: "Automatically remind members to bump your server with Disboard integration"
+icon: bell-plus
+---
+
+The Bump Reminder feature helps you maintain your server's visibility on Disboard by automatically reminding members when it's time to bump your server again.
+
+## Requirements
+
+- Server must be listed on Disboard
+- Bot must have permissions to:
+  - Send messages
+  - Embed links
+  - View channels
+
+## Setup
+
+### Enable Bump Reminder
+
+<CodeGroup>
+
+```bash Syntax
+,bumpreminder enable
+```
+
+```bash Example
+,bumpreminder enable
+```
+
+</CodeGroup>
+
+### Disable Bump Reminder
+
+<CodeGroup>
+
+```bash Syntax
+,bumpreminder disable
+```
+
+```bash Example
+,bumpreminder disable
+```
+
+</CodeGroup>
+
+## Customize Messages
+
+### Set Thank You Message
+
+<CodeGroup>
+
+```bash Syntax
+,bumpreminder thankyou <message>
+```
+
+```bash Example
+,bumpreminder thankyou {embed}{color: #24B8B8}$v{description: :thumbsup: Thank you for bumping the server! I will remind you **in 2 hours** to do it again}$v{content: {user.mention}}
+```
+
+</CodeGroup>
+
+### Set Reminder Message
+
+<CodeGroup>
+
+```bash Syntax
+,bumpreminder reminder <message>
+```
+
+```bash Example
+,bumpreminder reminder {embed}{color: #FF6465}$v{description: ⏰ Bump the server using `/bump`}$v{content: {user.mention}}
+```
+
+</CodeGroup>
+
+## Testing Messages
+
+### Test Thank You Message
+
+<CodeGroup>
+
+```bash Syntax
+,bumpreminder test thankyou
+```
+
+```bash Example
+,bumpreminder test thankyou
+```
+
+</CodeGroup>
+
+### Test Reminder Message
+
+<CodeGroup>
+
+```bash Syntax
+,bumpreminder test reminder
+```
+
+```bash Example
+,bumpreminder test reminder
+```
+
+</CodeGroup>
+
+## View Messages
+
+### View Thank You Message
+
+<CodeGroup>
+
+```bash Syntax
+,bumpreminder view thankyou
+```
+
+```bash Example
+,bumpreminder view thankyou
+```
+
+</CodeGroup>
+
+### View Reminder Message
+
+<CodeGroup>
+
+```bash Syntax
+,bumpreminder view reminder
+```
+
+```bash Example
+,bumpreminder view reminder
+```
+
+</CodeGroup>
+
+## Leaderboard
+
+### View Bump Leaderboard
+
+<CodeGroup>
+
+```bash Syntax
+,bumpreminder leaderboard
+```
+
+```bash Example
+,bumpreminder leaderboard
+```
+
+</CodeGroup>
+
+## Variables
+
+### Message Variables
+- `{user}` - User object
+- `{user.mention}` - User mention
+- `{user.name}` - Username
+- `{guild}` - Server object
+- `{channel}` - Channel object
+
+<Note>
+- Reminders are sent 2 hours after each bump
+- The leaderboard tracks the number of times each member has bumped the server
+- Messages support both regular text and embeds
+</Note>
+
+<Warning>
+Make sure the bot has proper permissions in the channel where bump reminders will be sent.
+</Warning> 

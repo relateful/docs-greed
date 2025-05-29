@@ -1,0 +1,150 @@
+---
+title: "Join to Leave"
+description: "Protect your server from users who join and leave quickly"
+icon: door-open
+---
+
+The Join to Leave feature automatically punishes users who join and leave your server within a specified time period, helping to prevent raid attempts and unwanted behavior.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Kick members
+  - Ban members
+  - View audit logs
+
+## Setup
+
+### Enable Protection
+
+<CodeGroup>
+
+```bash Syntax
+,jointoleave setup [time] [punishment] [reason]
+```
+
+```bash Example
+,jointoleave setup 5m kick Join to leave
+,jointoleave setup 1h ban Raid attempt
+```
+
+</CodeGroup>
+
+<Note>
+Time format examples: 5m (5 minutes), 1h (1 hour), 30s (30 seconds)
+</Note>
+
+### Disable Protection
+
+<CodeGroup>
+
+```bash Syntax
+,jointoleave disable
+```
+
+```bash Example
+,jointoleave disable
+```
+
+</CodeGroup>
+
+## Management
+
+### View Settings
+
+<CodeGroup>
+
+```bash Syntax
+,jointoleave settings
+```
+
+```bash Example
+,jointoleave settings
+```
+
+</CodeGroup>
+
+### Edit Settings
+
+<CodeGroup>
+
+```bash Syntax
+,jointoleave edit [setting] [value]
+```
+
+```bash Example
+,jointoleave edit time 10m
+,jointoleave edit punishment ban
+,jointoleave edit reason Raid attempt
+```
+
+</CodeGroup>
+
+<Note>
+Available settings: time, punishment, reason
+</Note>
+
+## Bypass Management
+
+### Add Bypass
+
+<CodeGroup>
+
+```bash Syntax
+,jointoleave bypass add [user]
+```
+
+```bash Example
+,jointoleave bypass add @user
+```
+
+</CodeGroup>
+
+### Remove Bypass
+
+<CodeGroup>
+
+```bash Syntax
+,jointoleave bypass remove [user]
+```
+
+```bash Example
+,jointoleave bypass remove @user
+```
+
+</CodeGroup>
+
+### List Bypasses
+
+<CodeGroup>
+
+```bash Syntax
+,jointoleave bypass list
+```
+
+```bash Example
+,jointoleave bypass list
+```
+
+</CodeGroup>
+
+## Features
+
+### Punishment Types
+- Kick: Removes user from server
+- Ban: Permanently bans user from server
+
+### Time Threshold
+- Configurable time window for join-to-leave detection
+- Default: 5 minutes
+- Minimum: 1 second
+- Maximum: No limit
+
+### Bypass System
+- Trusted users can be exempted from protection
+- Useful for staff members and trusted users
+- Bypasses persist across server restarts
+
+<Warning>
+Make sure the bot has proper permissions to execute punishments. If the bot lacks permissions, the protection will not work.
+</Warning> 

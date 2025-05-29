@@ -1,0 +1,88 @@
+---
+title: "Birthday System"
+description: "Set and track birthdays for server members"
+icon: cake-slice
+---
+
+The Birthday system allows users to set their birthday and lets others check when their birthday is coming up.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Send messages
+  - Embed links
+  - View channels
+
+## Commands
+
+### Check Birthday
+
+<CodeGroup>
+
+```bash Syntax
+,birthday [member]
+```
+
+```bash Example
+,birthday
+,birthday @user
+```
+
+</CodeGroup>
+
+### Set Birthday
+
+<CodeGroup>
+
+```bash Syntax
+,birthday set [month] [day]
+```
+
+```bash Example
+,birthday set August 10
+,birthday set 8/10
+```
+
+</CodeGroup>
+
+### Reset Birthday
+
+<CodeGroup>
+
+```bash Syntax
+,birthday reset
+```
+
+```bash Example
+,birthday reset
+```
+
+</CodeGroup>
+
+## Features
+
+### Birthday Tracking
+- Set your birthday with month and day
+- View other members' birthdays
+- Automatic birthday notifications
+- Relative time display (e.g., "in 5 days")
+
+### Date Formats
+- Full month names (e.g., "August")
+- Month numbers (e.g., "8")
+- Day numbers with or without ordinal (e.g., "10" or "10th")
+- Slash-separated format (e.g., "8/10")
+
+### Time Display
+- Shows "today" for current birthdays
+- Displays relative time for upcoming birthdays
+- Handles timezone conversions automatically
+- Updates in real-time
+
+<Warning>
+Birthdays are stored in UTC time. The bot will automatically adjust for your local timezone when displaying dates.
+</Warning>
+
+<Note>
+You can only set your birthday once. Use the reset command to clear your birthday and set a new one. 
+</Note>

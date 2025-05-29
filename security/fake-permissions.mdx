@@ -1,0 +1,121 @@
+---
+title: "Fake Permissions"
+description: "Grant temporary permissions to roles through the bot"
+icon: shield-question
+---
+
+The Fake Permissions system allows you to grant temporary permissions to roles that can be used through the bot, without actually modifying the role's Discord permissions.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Administrator
+  - Manage roles
+  - View channels
+  - Send messages
+  - Embed links
+
+## Commands
+
+### View Available Permissions
+
+<CodeGroup>
+
+```bash Syntax
+,fakepermissions
+```
+
+```bash Example
+,fakepermissions
+```
+
+</CodeGroup>
+
+### Add Fake Permissions
+
+<CodeGroup>
+
+```bash Syntax
+,fakepermissions add [role] [permission1] [permission2] ...
+```
+
+```bash Example
+,fakepermissions add @members manage_guild
+,fakepermissions add @moderators kick_members ban_members
+```
+
+</CodeGroup>
+
+### Remove Fake Permissions
+
+<CodeGroup>
+
+```bash Syntax
+,fakepermissions remove [role]
+```
+
+```bash Example
+,fakepermissions remove @members
+```
+
+</CodeGroup>
+
+### Clear All Fake Permissions
+
+<CodeGroup>
+
+```bash Syntax
+,fakepermissions clear
+```
+
+```bash Example
+,fakepermissions clear
+```
+
+</CodeGroup>
+
+### List Fake Permissions
+
+<CodeGroup>
+
+```bash Syntax
+,fakepermissions list
+```
+
+```bash Example
+,fakepermissions list
+```
+
+</CodeGroup>
+
+## Features
+
+### Permission Management
+- Add multiple permissions at once
+- Remove all permissions from a role
+- Clear all fake permissions
+- View current fake permissions
+- List available permissions
+
+### Available Permissions
+- Server management (manage_guild, manage_channels)
+- Member management (kick_members, ban_members)
+- Message management (manage_messages, send_messages)
+- Role management (manage_roles)
+- Channel management (manage_channels)
+- And many more Discord permissions
+
+### Security Features
+- Role-based permissions
+- Temporary permission grants
+- No actual role modification
+- Permission verification
+- Easy permission removal
+
+<Warning>
+Fake permissions only work through the bot and do not modify the actual Discord role permissions. Users will still need the actual permissions to perform actions outside of bot commands.
+</Warning>
+
+<Note>
+You can add multiple permissions to a role at once by separating them with spaces. The permissions will be granted immediately and can be removed at any time.
+</Note> 

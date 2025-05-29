@@ -1,0 +1,108 @@
+---
+title: "Command Restrictions"
+description: "Restrict command usage to specific roles in your server"
+icon: octagon-minus
+---
+
+The Command Restrictions feature allows you to limit which roles can use specific commands, providing an additional layer of security and control over command usage.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Administrator (for the bot)
+  - Administrator (for the user setting restrictions)
+
+<Warning>
+Both the bot and the user setting restrictions must have Administrator permissions for this feature to work properly.
+</Warning>
+
+## Basic Commands
+
+### Add Restriction
+
+<CodeGroup>
+
+```bash Syntax
+,restrict add [command], [role]
+```
+
+```bash Example
+,restrict add ban, @Moderator
+,restrict add kick, @Staff
+```
+
+</CodeGroup>
+
+<Note>
+The command and role must be separated by a comma. The role can be mentioned, named, or ID.
+</Note>
+
+### Remove Restriction
+
+<CodeGroup>
+
+```bash Syntax
+,restrict remove [command], [role]
+```
+
+```bash Example
+,restrict remove ban, @Moderator
+```
+
+</CodeGroup>
+
+### List Restrictions
+
+<CodeGroup>
+
+```bash Syntax
+,restrict list
+```
+
+```bash Example
+,restrict list
+```
+
+</CodeGroup>
+
+### Reset All Restrictions
+
+<CodeGroup>
+
+```bash Syntax
+,restrict reset
+```
+
+```bash Example
+,restrict reset
+```
+
+</CodeGroup>
+
+## Features
+
+### Command Control
+- Restrict any command to specific roles
+- Multiple roles can be restricted for the same command
+- Restrictions persist across server restarts
+- Easy to manage with clear commands
+
+### Role Management
+- Works with any role in the server
+- Supports role mentions, names, and IDs
+- Can be used with custom roles
+- Restrictions are role-based, not user-based
+
+### Security
+- Additional layer of command protection
+- Prevents unauthorized command usage
+- Works alongside Discord's permission system
+- Helps maintain server security
+
+<Note>
+Command restrictions are in addition to Discord's built-in permission system. Users still need the appropriate Discord permissions to use commands.
+</Note>
+
+<Warning>
+Make sure to test restrictions after setting them up to ensure they're working as intended. If a command is restricted to a role that no longer exists, the restriction will be automatically removed.
+</Warning> 

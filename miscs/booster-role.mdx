@@ -1,0 +1,216 @@
+---
+title: "Booster Role"
+description: "Create and manage custom roles for server boosters"
+icon: rocket
+---
+
+The Booster Role system allows server boosters to create and manage their own custom roles with unique names, colors, and icons.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Administrator
+  - Manage roles
+  - View channels
+  - Send messages
+  - Embed links
+- Server must be level 2 or higher
+- User must be a server booster
+
+## Setup
+
+### Enable Booster Roles
+
+<CodeGroup>
+
+```bash Syntax
+,boosterroles setup
+```
+
+```bash Example
+,boosterroles setup
+```
+
+</CodeGroup>
+
+### Set Base Role
+
+<CodeGroup>
+
+```bash Syntax
+,boosterroles base [role]
+```
+
+```bash Example
+,boosterroles base @members
+```
+
+</CodeGroup>
+
+## Commands
+
+### Create Role
+
+<CodeGroup>
+
+```bash Syntax
+,boosterroles create [name] [color]
+```
+
+```bash Example
+,boosterroles create topG #ff0000
+```
+
+</CodeGroup>
+
+### Delete Role
+
+<CodeGroup>
+
+```bash Syntax
+,boosterroles delete
+```
+
+```bash Example
+,boosterroles delete
+```
+
+</CodeGroup>
+
+### Rename Role
+
+<CodeGroup>
+
+```bash Syntax
+,boosterroles rename [name]
+```
+
+```bash Example
+,boosterroles rename littleG
+```
+
+</CodeGroup>
+
+### Change Color
+
+<CodeGroup>
+
+```bash Syntax
+,boosterroles color [color]
+```
+
+```bash Example
+,boosterroles color #ffffff
+```
+
+</CodeGroup>
+
+### Set Icon
+
+<CodeGroup>
+
+```bash Syntax
+,boosterroles icon [emoji/url]
+```
+
+```bash Example
+,boosterroles icon :blunt:
+```
+
+</CodeGroup>
+
+### Share Role
+
+<CodeGroup>
+
+```bash Syntax
+,boosterroles share [user]
+```
+
+```bash Example
+,boosterroles share @user
+```
+
+</CodeGroup>
+
+### List Roles
+
+<CodeGroup>
+
+```bash Syntax
+,boosterroles list
+```
+
+```bash Example
+,boosterroles list
+```
+
+</CodeGroup>
+
+### Sync Roles
+
+<CodeGroup>
+
+```bash Syntax
+,boosterroles sync
+```
+
+```bash Example
+,boosterroles sync
+```
+
+</CodeGroup>
+
+### Include User
+
+<CodeGroup>
+
+```bash Syntax
+,boosterroles include [role] [user]
+```
+
+```bash Example
+,boosterroles include @role @user
+```
+
+</CodeGroup>
+
+## Features
+
+### Role Management
+- Create custom roles
+- Set role names
+- Change role colors
+- Add role icons
+- Share roles with others
+- Delete roles
+
+### Role Organization
+- Base role positioning
+- Role synchronization
+- Automatic cleanup
+- Role limits based on server level
+
+### Customization
+- Color picker with named colors
+- Support for emoji icons
+- Support for image URLs
+- Role hoisting
+- Role mentionability
+
+### Administration
+- Role listing
+- User inclusion
+- Role synchronization
+- Automatic cleanup on member leave
+
+<Warning>
+Booster roles are automatically deleted when the owner leaves the server or removes their boost.
+</Warning>
+
+<Note>
+The number of booster roles is limited based on your server's boost level:
+- Level 1: 100 roles
+- Level 2: 150 roles
+- Level 3: 250 roles
+</Note> 

@@ -1,0 +1,136 @@
+---
+title: "Voicemaster"
+description: "Create and manage custom voice channels with advanced controls in Greed"
+icon: disc-3
+---
+
+Voicemaster allows users to create and manage their own voice channels with a variety of controls. Users can customize their channels, manage permissions, and control who can join their voice channels.
+
+## Requirements
+
+- Server must have at least one text channel for the Voicemaster menu
+- Bot must have permissions to:
+  - Manage channels
+  - View channels
+  - Send messages
+  - Manage permissions
+  - Move members
+
+## Setup
+
+To set up Voicemaster in your server:
+
+<CodeGroup>
+
+```bash Syntax
+,voicemaster setup
+```
+
+```bash Example
+,voicemaster setup
+```
+
+</CodeGroup>
+
+This will create:
+- A "vm" category
+- A "menu" text channel with the control panel
+- A "create" voice channel for creating new voice channels
+
+## Voice Channel Controls
+
+Once you join the "create" voice channel, you'll get your own voice channel with the following controls:
+
+### Lock/Unlock
+- Lock your channel to prevent others from joining
+- Unlock to allow others to join again
+
+### Hide/Reveal
+- Hide your channel from the channel list
+- Reveal to make it visible again
+
+### Rename
+- Change your voice channel's name
+
+### Claim
+- Claim ownership of a voice channel if the owner leaves
+
+### User Limit
+- Increase/decrease the maximum number of users allowed
+- Set a specific limit using the limit command
+
+### Information
+- View details about your voice channel including:
+  - Bitrate
+  - Member count
+  - Creation date
+  - Owner
+
+### Delete
+- Delete your voice channel
+
+## Additional Commands
+
+### Set Channel Template
+
+<CodeGroup>
+
+```bash Syntax
+,voicemaster template (template)
+```
+
+```bash Example
+,voicemaster template {owner}'s channel
+```
+
+</CodeGroup>
+
+Available variables:
+- `{owner}` - Channel owner's name
+- `{count}` - Number of members in channel
+
+### Temporary Channels
+
+<CodeGroup>
+
+```bash Syntax
+,voicemaster temporary
+```
+
+```bash Example
+,voicemaster temporary
+```
+
+</CodeGroup>
+
+Toggle automatic deletion of empty voice channels.
+
+### User Management
+
+<CodeGroup>
+
+```bash Syntax
+,voicemaster permit (user)
+,voicemaster reject (user)
+,voicemaster drag (user)
+```
+
+```bash Example
+,voicemaster permit @user
+,voicemaster reject @user
+,voicemaster drag @user
+```
+
+</CodeGroup>
+
+- `permit`: Allow a user to join your channel
+- `reject`: Remove a user and prevent them from joining
+- `drag`: Move a user to your voice channel
+
+<Note>
+Channel owners have full control over their voice channels, including the ability to manage permissions and kick users.
+</Note>
+
+<Warning>
+Deleting the Voicemaster category or channels will require re-running the setup command to restore functionality. 
+</Warning>

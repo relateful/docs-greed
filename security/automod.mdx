@@ -1,0 +1,184 @@
+---
+title: "AutoMod"
+description: "Advanced message filtering and moderation system"
+icon: globe-lock
+---
+
+The AutoMod system provides comprehensive message filtering and moderation capabilities to keep your server safe and organized.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Administrator
+  - Manage messages
+  - Moderate members
+  - Manage roles
+  - View channels
+  - Send messages
+  - Embed links
+
+## Setup
+
+### Enable AutoMod
+
+<CodeGroup>
+
+```bash Syntax
+,filter setup
+```
+
+```bash Example
+,filter setup
+```
+
+</CodeGroup>
+
+### Set Timeout Duration
+
+<CodeGroup>
+
+```bash Syntax
+,filter timeout [duration]
+```
+
+```bash Example
+,filter timeout 60s
+,filter timeout 5m
+,filter timeout 1h
+```
+
+</CodeGroup>
+
+## Commands
+
+### Word Filtering
+
+<CodeGroup>
+
+```bash Syntax
+,filter add [word]
+,filter remove [word]
+,filter list
+,filter clear
+```
+
+```bash Example
+,filter add badword
+,filter remove badword
+,filter list
+,filter clear
+```
+
+</CodeGroup>
+
+### Content Filters
+
+<CodeGroup>
+
+```bash Syntax
+,filter links [type] [state] --threshold [number]
+,filter invites [state] --threshold [number]
+,filter spoilers [state] --threshold [number]
+,filter headers [state] --threshold [number]
+```
+
+```bash Example
+,filter links all true --threshold 5
+,filter invites true --threshold 3
+,filter spoilers true --threshold 2
+,filter headers true --threshold 5
+```
+
+</CodeGroup>
+
+### Message Filters
+
+<CodeGroup>
+
+```bash Syntax
+,filter spam [state] --threshold [number]
+,filter emojis [state] --threshold [number]
+,filter caps [state] --threshold [number]
+,filter massmention [state] --threshold [number]
+```
+
+```bash Example
+,filter spam true --threshold 10
+,filter emojis true --threshold 5
+,filter caps true --threshold 70
+,filter massmention true --threshold 5
+```
+
+</CodeGroup>
+
+### Punishment Settings
+
+<CodeGroup>
+
+```bash Syntax
+,filter punishment [type]
+```
+
+```bash Example
+,filter punishment timeout
+,filter punishment kick
+,filter punishment ban
+,filter punishment jail
+```
+
+</CodeGroup>
+
+### Whitelist Management
+
+<CodeGroup>
+
+```bash Syntax
+,filter whitelist [user/role/channel] --events [events] --reason [reason]
+,filter whitelisted
+```
+
+```bash Example
+,filter whitelist @user --events spam,links --reason "Trusted user"
+,filter whitelist #channel --events all
+,filter whitelisted
+```
+
+</CodeGroup>
+
+## Features
+
+### Content Protection
+- Link filtering (Discord invites, external links, all links)
+- Invite blocking
+- Spoiler content detection
+- Header text filtering
+- Image limit control
+
+### Message Control
+- Spam detection
+- Emoji limit enforcement
+- Capital letter limits
+- Mass mention prevention
+- Keyword filtering
+
+### Moderation Tools
+- Multiple punishment options
+- Customizable thresholds
+- Whitelist system
+- Timeout duration control
+- Automatic cleanup
+
+### Security Features
+- Role-based exemptions
+- Channel-specific rules
+- User whitelisting
+- Event-specific controls
+- Audit logging
+
+<Warning>
+The AutoMod system requires administrator permissions to function properly. Make sure the bot has all necessary permissions.
+</Warning>
+
+<Note>
+Thresholds can be set between 1 and 127 for most filters. The timeout duration must be at least 20 seconds.
+</Note> 

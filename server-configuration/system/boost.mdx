@@ -1,0 +1,69 @@
+---
+title: "Boost Messages"
+description: "Configure boost messages for your server"
+---
+
+Boost messages let your community know when someone boosts the server. This page explains how to set up, customize, and manage boost messages in Greed.
+
+## Setup
+
+To enable boost messages in your server, run:
+
+```bash
+,boost setup
+```
+
+This will configure boost messages in the current channel.
+
+## Set the Boost Channel
+
+Set the channel where boost messages will be sent:
+
+```bash
+,boost channel #boosts
+```
+
+## Customize the Boost Message
+
+Set your custom boost message:
+
+```bash
+,boost message Thank you for boosting, {user.mention}!
+```
+
+You can use embed formatting for advanced messages. Example:
+
+```bash
+,boost message {embed}$v{title: Welcome!}{description: Thank you {user.mention} for boosting!}
+```
+
+## View Current Message
+
+You can check your current boost message configuration at any time:
+
+```bash
+,boost view (channel)
+```
+
+This command will display your current boost message and its settings.
+
+## Test Boost
+
+Preview your boost message as it will appear to members:
+
+```bash
+,boost test (channel)
+```
+
+This command will send a test boost message to the configured channel so you can see exactly how it looks.
+
+## Disable Boost Messages
+
+To disable boost messages:
+
+```bash
+,boost reset
+```
+
+## Available Variables
+<Note>You can find all the variables in the [/resources/variables](/resources/variables) page.</Note>

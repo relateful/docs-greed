@@ -1,0 +1,59 @@
+---
+title: "Autoreaction"
+description: "Configure automatic reactions to messages, images, emojis, and more"
+---
+
+Autoreaction allows you to set up automatic reactions to different types of content in your server. This includes custom triggers, images, spoilers, emojis, and stickers.
+
+## Command Overview
+
+The base command for managing autoreactions is:
+
+<CodeGroup>
+```bash Syntax
+,autoreact
+```
+
+```bash Aliases
+,reaction
+,autoreaction
+,autoreactions
+```
+
+```bash Example
+,autoreact clear stickers
+```
+</CodeGroup>
+
+<Note>
+- Using clear without a type removes all autoreactions
+- Specify a type to clear only those specific event reactions
+- Valid types are: images, spoilers, emojis, stickers
+</Note>
+
+## Viewing Autoreactions
+
+View all configured autoreactions:
+<CodeGroup>
+```bash Syntax
+,autoreact list
+```
+</CodeGroup>
+
+The list command shows:
+- All custom trigger reactions
+- All event-based reactions (images, spoilers, emojis, stickers)
+- The reactions configured for each trigger/event
+
+# Permissions
+<Note>
+All autoreaction commands require the "Manage Emojis" permission in your server.
+</Note>
+
+Limitations
+- Each trigger or event can have up to 15 reactions
+- Trigger phrases must be under 32 characters
+- Custom triggers cannot have duplicate reactions
+- Event reactions (images, spoilers, etc.) cannot have duplicates
+
+Further information is self explanatory.

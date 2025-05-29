@@ -1,0 +1,87 @@
+---
+title: "Reminder System"
+description: "Set and manage reminders for important events"
+icon: bell-ring
+---
+
+The Reminder system allows users to set custom reminders that will notify them at a specified time.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Send messages
+  - Embed links
+  - View channels
+
+## Commands
+
+### Add Reminder
+
+<CodeGroup>
+
+```bash Syntax
+,reminder add [time] [reminder]
+```
+
+```bash Example
+,reminder add 5m take out the trash
+,reminder add 1h check the oven
+```
+
+</CodeGroup>
+
+### List Reminders
+
+<CodeGroup>
+
+```bash Syntax
+,reminder list
+```
+
+```bash Example
+,reminder list
+```
+
+</CodeGroup>
+
+### Remove Reminder
+
+<CodeGroup>
+
+```bash Syntax
+,reminder remove [index]
+```
+
+```bash Example
+,reminder remove 1
+```
+
+</CodeGroup>
+
+## Features
+
+### Time Formats
+- Minutes (e.g., "5m")
+- Hours (e.g., "1h")
+- Days (e.g., "2d")
+- Weeks (e.g., "1w")
+
+### Reminder Management
+- Set multiple reminders
+- List all active reminders
+- Remove specific reminders
+- Automatic notifications
+
+### Notification System
+- Mentions user when reminder is due
+- Shows reminder message
+- Includes reminder set time
+- Batch processing for efficiency
+
+<Warning>
+Reminders are processed in batches every 10 seconds. There might be a slight delay in notification delivery.
+</Warning>
+
+<Note>
+The time parameter must be in the future. The bot will not accept past times for reminders.
+</Note> 

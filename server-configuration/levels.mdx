@@ -1,0 +1,209 @@
+---
+title: "Levels"
+description: "Track member activity and reward engagement with Greed's leveling system"
+icon: medal
+---
+
+The Levels feature allows you to track member activity through text and voice channels, rewarding engagement with custom roles and messages. Members can earn XP through messages and voice activity.
+
+<Note>You can find all the variables in the [/resources/variables](/resources/variables) page. You can use these variables on your `levels message`</Note>
+
+## Requirements
+
+- Server must have at least one text channel for level messages
+- Bot must have permissions to:
+  - Send messages
+  - Embed links
+  - Manage roles (for level rewards)
+  - View channels
+  - Connect to voice channels
+
+## Setup
+
+### Enable Leveling
+
+<CodeGroup>
+
+```bash Syntax
+,levels setup
+```
+
+```bash Example
+,levels setup
+```
+
+</CodeGroup>
+
+### Set Level Message Channel
+
+<CodeGroup>
+
+```bash Syntax
+,levels channel <channel>
+```
+
+```bash Example
+,levels channel #level-ups
+```
+
+</CodeGroup>
+
+### Customize Level Message
+
+<CodeGroup>
+
+```bash Syntax
+,levels message <message>
+```
+
+```bash Example
+,levels message {embed}{description: Congrats {user.mention} for reaching level {level}!}{color: #2b2d31}
+```
+
+</CodeGroup>
+
+### Test Level Message
+
+<CodeGroup>
+
+```bash Syntax
+,levels message test
+```
+
+```bash Example
+,levels message test
+```
+
+</CodeGroup>
+
+## Level Rewards
+
+### Add Level Role
+
+<CodeGroup>
+
+```bash Syntax
+,levels role <level> <role>
+```
+
+```bash Example
+,levels role 5 @level-5
+```
+
+</CodeGroup>
+
+### Remove Level Role
+
+<CodeGroup>
+
+```bash Syntax
+,levels role remove <level>
+```
+
+```bash Example
+,levels role remove 5
+```
+
+</CodeGroup>
+
+### List Level Rewards
+
+<CodeGroup>
+
+```bash Syntax
+,levels list
+```
+
+```bash Example
+,levels list
+```
+
+</CodeGroup>
+
+## Voice Leveling
+
+### Enable Voice Leveling
+
+<CodeGroup>
+
+```bash Syntax
+,levels voice enable
+```
+
+```bash Example
+,levels voice enable
+```
+
+</CodeGroup>
+
+### View Voice Settings
+
+<CodeGroup>
+
+```bash Syntax
+,levels voice settings
+```
+
+```bash Example
+,levels voice settings
+```
+
+</CodeGroup>
+
+## Stats & Leaderboard
+
+### View User Stats
+
+<CodeGroup>
+
+```bash Syntax
+,levels stats [user]
+```
+
+```bash Example
+,levels stats
+,levels stats @user
+```
+
+</CodeGroup>
+
+### View Leaderboard
+
+<CodeGroup>
+
+```bash Syntax
+,levels leaderboard [total|text|voice] [limit]
+```
+
+```bash Example
+,levels leaderboard total 10
+,levels leaderboard voice 5
+```
+
+</CodeGroup>
+
+## Variables
+
+### Level Message Variables
+- `{user}` - User object
+- `{user.mention}` - User mention
+- `{user.name}` - Username
+- `{level}` - New level
+- `{guild}` - Server object
+- `{channel}` - Channel object
+
+### Voice Leveling Settings
+- XP per minute: 5 (default)
+- Max XP per session: 100 (default)
+- Minimum voice time: 1 minute (default)
+
+<Note>
+- Level roles are automatically assigned when members reach the required level
+- Voice XP is awarded every minute while in voice channels
+- Leaderboard data is cached for 5 minutes
+- User stats are cached for 5 minutes
+</Note>
+
+<Warning>
+Make sure the bot's role is above any level reward roles to ensure proper role assignment.
+</Warning> 

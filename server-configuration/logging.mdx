@@ -1,0 +1,156 @@
+---
+title: "Logging"
+description: "Track and monitor server activity with comprehensive logging in Greed"
+icon: file-text
+---
+
+The Logging feature allows you to monitor and track various server activities through detailed logs. Get notified about member actions, message changes, channel modifications, and more.
+
+## Requirements
+
+- Server must have at least one text channel for logs
+- Bot must have permissions to:
+  - Send messages
+  - Embed links
+  - View channels
+  - View audit logs
+  - Attach files
+
+## Setup
+
+### Add Logging Channel
+
+<CodeGroup>
+
+```bash Syntax
+,logs add <channel> <events>
+```
+
+```bash Example
+,logs add #logs all
+,logs add #mod-logs message member
+```
+
+</CodeGroup>
+
+### List Logging Channels
+
+<CodeGroup>
+
+```bash Syntax
+,logs list
+```
+
+```bash Example
+,logs list
+```
+
+</CodeGroup>
+
+### Remove Logging Events
+
+<CodeGroup>
+
+```bash Syntax
+,logs remove <channel> <events>
+```
+
+```bash Example
+,logs remove #logs message
+,logs remove #logs all
+```
+
+</CodeGroup>
+
+### View Available Events
+
+<CodeGroup>
+
+```bash Syntax
+,logs events
+```
+
+```bash Example
+,logs events
+```
+
+</CodeGroup>
+
+## Ignoring
+
+### Ignore Member/Channel
+
+<CodeGroup>
+
+```bash Syntax
+,logs ignore <member/channel>
+```
+
+```bash Example
+,logs ignore @user
+,logs ignore #channel
+```
+
+</CodeGroup>
+
+### List Ignored
+
+<CodeGroup>
+
+```bash Syntax
+,logs ignore list
+```
+
+```bash Example
+,logs ignore list
+```
+
+</CodeGroup>
+
+## Logged Events
+
+### Member Events
+- Joins and leaves
+- Nickname changes
+- Role updates
+- Server avatar changes
+- Server banner changes
+
+### Message Events
+- Message deletions
+- Message edits
+- Bulk message deletions
+- Attachments and embeds
+
+### Channel Events
+- Channel creation
+- Channel deletion
+- Channel updates
+
+### Role Events
+- Role creation
+- Role deletion
+- Role updates
+- Permission changes
+
+### Voice Events
+- Voice channel joins/leaves
+- Voice state changes
+- Mute/unmute
+- Deaf/undeaf
+- Stream start/stop
+
+### Other Events
+- Emoji creation/updates
+- Sticker creation/updates
+- Invite creation/deletion
+
+<Note>
+- Logs are sent through webhooks for better performance
+- Large files are automatically skipped if they exceed 8MB
+- Bulk message deletions include a text file with message contents
+</Note>
+
+<Warning>
+Make sure the bot has proper permissions in the logging channels. If permissions are missing, the logging configuration will be automatically removed.
+</Warning> 

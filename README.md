@@ -1,32 +1,39 @@
-# Mintlify Starter Kit
+# Greed Documentation
 
-Click on `Use this template` to copy the Mintlify starter kit. The starter kit contains examples including
+Welcome to the official documentation repository for Greed.
 
-- Guide pages
-- Navigation
-- Customizations
-- API Reference pages
-- Use of popular components
+You can browse the live documentation site for the latest guides, features, and updates.
 
-### Development
+We encourage contributions from everyone. If you'd like to help improve our docs, please open a Pull Request. New to contributing? Take a look at our Contributing guidelines and get comfortable with MDX before submitting changes.
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the documentation changes locally. To install, use the following command
+## About Mintlify
 
-```
-npm i -g mintlify
-```
+This documentation is built with [Mintlify](https://mintlify.com/), a modern documentation platform that makes it easy to create beautiful, interactive docs. You can use a wide range of components to enhance your pages. Explore the [Mintlify Components Library](https://mintlify.com/docs/components/overview) for ideas and usage examples.
 
-Run the following command at the root of your documentation (where docs.json is)
+## Examples
 
-```
-mintlify dev
-```
+- Add new guides or update existing ones to clarify instructions.
+- Use Mintlify components like [Cards](https://mintlify.com/docs/components/cards), [Accordions](https://mintlify.com/docs/components/accordions), and [Tabs](https://mintlify.com/docs/components/tabs) to organize content.
+- Include code blocks and images to make documentation more helpful.
 
-### Publishing Changes
+## How to Make a Good Pull Request
 
-Install our Github App to auto propagate changes from your repo to your deployment. Changes will be deployed to production automatically after pushing to the default branch. Find the link to install on your dashboard. 
+- Make sure your changes are clear, concise, and well-organized.
+- Preview your changes locally before submitting (see Mintlify's [Getting Started](https://mintlify.com/docs/getting-started)).
+- Reference related issues or discussions if applicable.
+- Be respectful and constructive in your comments and commit messages.
+- If you're adding a new page, update the navigation in `docs.json`.
 
-#### Troubleshooting
+## Join Our Community
 
-- Mintlify dev isn't running - Run `mintlify install` it'll re-install dependencies.
-- Page loads as a 404 - Make sure you are running in a folder with `docs.json`
+Connect with us and other users in the [Greed Discord Server](https://discord.gg/greedbot).
+
+Thank you for helping us make Greed better for everyone!
+
+## Code of Conduct
+
+We are committed to fostering a welcoming and respectful environment for everyone. Please read our [Code of Conduct](./CODE_OF_CONDUCT.md) before contributing.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.

@@ -1,0 +1,161 @@
+---
+title: "Confessions System"
+description: "Create and manage anonymous confessions in your server"
+icon: book-heart
+---
+
+The Confessions system allows users to send anonymous messages in a designated channel, with features like blacklisting, reporting, and reaction management.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Send messages
+  - Embed links
+  - View channels
+  - Add reactions
+  - Manage messages
+
+## Setup
+
+### Add Confession Channel
+
+<CodeGroup>
+
+```bash Syntax
+,confessions add [channel]
+```
+
+```bash Example
+,confessions add #confessions
+```
+
+</CodeGroup>
+
+### Remove Confession Channel
+
+<CodeGroup>
+
+```bash Syntax
+,confessions remove
+```
+
+```bash Example
+,confessions remove
+```
+
+</CodeGroup>
+
+## Commands
+
+### Send Confession
+
+<CodeGroup>
+
+```bash Syntax
+/confess
+```
+
+```bash Example
+/confess
+```
+
+</CodeGroup>
+
+### Blacklist Management
+
+<CodeGroup>
+
+```bash Syntax
+,confessions blacklist add [word]
+,confessions blacklist remove [word]
+,confessions blacklist list
+,confessions blacklist clear
+```
+
+```bash Example
+,confessions blacklist add badword
+,confessions blacklist remove badword
+,confessions blacklist list
+,confessions blacklist clear
+```
+
+</CodeGroup>
+
+### Mute Management
+
+<CodeGroup>
+
+```bash Syntax
+,confessions mute [confession_number]
+,confessions unmute [confession_number]
+,confessions unmute all
+```
+
+```bash Example
+,confessions mute 34
+,confessions unmute 34
+,confessions unmute all
+```
+
+</CodeGroup>
+
+### Reaction Management
+
+<CodeGroup>
+
+```bash Syntax
+,confessions emojis set [upvote] [downvote]
+,confessions emojis reset
+,confessions emojis view
+```
+
+```bash Example
+,confessions emojis set 👍 👎
+,confessions emojis reset
+,confessions emojis view
+```
+
+</CodeGroup>
+
+### Report System
+
+<CodeGroup>
+
+```bash Syntax
+,confessions report [confession_number]
+```
+
+```bash Example
+,confessions report 34
+```
+
+</CodeGroup>
+
+## Features
+
+### Confession Management
+- Anonymous confession posting
+- Numbered confessions
+- Reply system
+- Reaction system
+- Report system
+
+### Moderation Tools
+- Word blacklisting
+- User muting
+- Confession reporting
+- Custom reaction emojis
+
+### Security Features
+- Link blocking
+- Word filtering
+- Cooldown system
+- Report handling
+
+<Warning>
+Confessions cannot be edited or deleted after posting. Make sure to review your confession before submitting.
+</Warning>
+
+<Note>
+Users can only send one confession every 60 seconds to prevent spam.
+</Note> 

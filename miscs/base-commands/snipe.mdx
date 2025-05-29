@@ -1,0 +1,110 @@
+---
+title: "Snipe System"
+description: "View recently deleted, edited, or removed reactions from messages"
+icon: badge-x
+---
+
+The Snipe system allows you to view recently deleted messages, edited messages, and removed reactions in your server.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Send messages
+  - Embed links
+  - View channels
+  - View message history
+
+## Commands
+
+### View Deleted Messages
+
+<CodeGroup>
+
+```bash Syntax
+,snipe [index]
+```
+
+```bash Example
+,snipe
+,snipe 2
+```
+
+</CodeGroup>
+
+### View Edited Messages
+
+<CodeGroup>
+
+```bash Syntax
+,editsnipe [index]
+```
+
+```bash Example
+,editsnipe
+,editsnipe 2
+```
+
+</CodeGroup>
+
+### View Removed Reactions
+
+<CodeGroup>
+
+```bash Syntax
+,reactionsnipe [index]
+```
+
+```bash Example
+,reactionsnipe
+,reactionsnipe 2
+```
+
+</CodeGroup>
+
+### Clear Snipes
+
+<CodeGroup>
+
+```bash Syntax
+,clearsnipe
+```
+
+```bash Example
+,clearsnipe
+```
+
+</CodeGroup>
+
+## Features
+
+### Message Sniping
+- View recently deleted messages
+- See message content, author, and timestamp
+- Support for embeds and attachments
+- Index-based retrieval for multiple snipes
+
+### Edit Sniping
+- View original message content before edits
+- Track who edited the message
+- See edit timestamps
+- Support for multiple edit history
+
+### Reaction Sniping
+- Track removed reactions
+- See who removed the reaction
+- View reaction emoji
+- Timestamp tracking
+
+### Content Filtering
+- Automatic filtering of invite links
+- Keyword-based content filtering
+- Server-specific filter settings
+- Protection against spam
+
+<Warning>
+Sniped messages are automatically cleared after a certain period. The bot will not store messages indefinitely.
+</Warning>
+
+<Note>
+The index parameter is optional and defaults to 1. Use higher numbers to view older snipes.
+</Note> 

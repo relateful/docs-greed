@@ -1,0 +1,137 @@
+---
+title: "AutoPFP"
+description: "Automatically post random profile pictures in designated channels"
+icon: user-pen
+---
+
+The AutoPFP feature automatically posts random profile pictures in designated channels at regular intervals, with various categories to choose from.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Send messages
+  - Embed links
+  - View channels
+  - Manage webhooks
+
+## Setup
+
+### Add Channel
+
+<CodeGroup>
+
+```bash Syntax
+,autopfp add <channel> <category>
+```
+
+```bash Example
+,autopfp add #pfp all
+,autopfp add #anime-pfp anime
+```
+
+</CodeGroup>
+
+### Remove Channel
+
+<CodeGroup>
+
+```bash Syntax
+,autopfp remove <channel>
+```
+
+```bash Example
+,autopfp remove #pfp
+```
+
+</CodeGroup>
+
+### List Channels
+
+<CodeGroup>
+
+```bash Syntax
+,autopfp list
+```
+
+```bash Example
+,autopfp list
+```
+
+</CodeGroup>
+
+## Categories
+
+### View Categories
+
+<CodeGroup>
+
+```bash Syntax
+,autopfp categories
+```
+
+```bash Example
+,autopfp categories
+```
+
+</CodeGroup>
+
+### Available Categories
+- anime
+- cats
+- com
+- dogs
+- eboy
+- edgy
+- egirls
+- girls
+- goth
+- male
+- matching
+- scene
+
+## Reporting
+
+### Report Image
+
+<CodeGroup>
+
+```bash Syntax
+,report <category> <image_id>
+```
+
+```bash Example
+,report dogs image123
+```
+
+</CodeGroup>
+
+## Features
+
+### Image Posting
+- Posts images every 100 seconds
+- Uses webhooks for better performance
+- Includes image ID in footer for reporting
+- Supports multiple categories per channel
+
+### Category Management
+- Can set multiple categories per channel
+- "all" category randomly selects from all categories
+- Only one channel can have "all" category enabled
+- Categories can be added to existing channels
+
+### Webhook Management
+- Automatically creates and manages webhooks
+- Handles webhook errors and recreation
+- Migrates old channels to use webhooks
+- Cleans up invalid webhooks
+
+<Note>
+- Images are posted every 100 seconds per channel
+- Each guild can have multiple AutoPFP channels
+- Images can be reported if inappropriate
+- Webhooks are automatically managed
+</Note>
+
+<Warning>
+Make sure the bot has proper permissions to create and manage webhooks in the designated channels.
+</Warning> 

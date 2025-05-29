@@ -1,0 +1,84 @@
+---
+title: "Autoresponder"
+description: "Automatically respond to messages with custom triggers and replies in Greed"
+---
+
+The Responder (autoresponder) lets you set up custom triggers and automatic replies for your server. Use it to answer frequently asked questions, provide information, or add fun interactions for your community.
+
+## Add a Responder
+
+To add a new responder, use:
+
+<CodeGroup>
+
+```bash Syntax
+,autoresponder add (trigger) (response) [--strict] [--reply]
+```
+
+```bash Example
+,autoresponder add hello Hi there!
+,autoresponder add "how are you" I'm good! --strict --reply
+```
+
+</CodeGroup>
+
+- `--strict`: Only triggers on an exact match (not just containing the phrase)
+- `--reply`: Makes the bot reply to the message instead of sending a new message
+
+## List Responders
+
+See all responders currently set up in your server:
+
+<CodeGroup>
+
+```bash Syntax
+,autoresponder list
+```
+
+```bash Example
+,autoresponder list
+```
+
+</CodeGroup>
+
+This command will display a list of all triggers, their responses, and any flags.
+
+## Remove a Responder
+
+To remove a responder, use:
+
+<CodeGroup>
+
+```bash Syntax
+,autoresponder remove (trigger)
+```
+
+```bash Example
+,autoresponder remove hello
+```
+
+</CodeGroup>
+
+Replace `hello` with the trigger you want to remove.
+
+## Clear All Responders
+
+To remove all responders from your server:
+
+<CodeGroup>
+
+```bash Syntax
+,autoresponder clear
+```
+
+```bash Example
+,autoresponder clear
+```
+
+</CodeGroup>
+
+## Available Variables
+
+<Note>
+You can use variables in your responder replies, such as `{user}` for the message author. See the [/resources/variables](/resources/variables) page for a full list.
+</Note>

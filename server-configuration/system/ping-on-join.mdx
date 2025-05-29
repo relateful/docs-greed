@@ -1,0 +1,72 @@
+---
+title: "Ping on Join"
+description: "Configure automatic pings for new members"
+---
+
+Ping on Join allows you to automatically mention or welcome new members in a specific channel. This page explains how to enable, customize, and manage this feature in Greed.
+
+## Enable Ping on Join
+
+To enable ping on join in your server:
+
+```bash
+,pingonjoin enable #welcome
+```
+
+This will enable ping on join in the specified channel.
+
+### With Threshold
+
+Optionally, set a minimum member count threshold:
+
+```bash
+,pingonjoin enable #welcome 5
+```
+
+Higher thresholds (e.g., 5) mean the feature only activates when the server has that many members. Useful for growing servers to prevent spam in early stages.
+
+## Customize the Ping Message
+
+Set your custom ping on join message (supports embed formatting):
+
+```bash
+,pingonjoin message {embed}$v{title: New Member!}{description: Welcome {user}!}
+```
+
+## Disable Feature
+
+To turn off ping on join:
+
+```bash
+,pingonjoin disable
+```
+
+## Aliases
+
+You can use the following alias for this command:
+
+```bash
+,poj
+```
+
+## Required Permissions
+
+<CardGroup cols={2}>
+  <Card title="Required Permissions" icon="shield" href="#permissions">
+    <ul>
+      <li>Manage Server</li>
+      <li>Send Messages</li>
+      <li>Embed Links</li>
+    </ul>
+  </Card>
+  <Card title="Best Practices" icon="star" href="#best-practices">
+    <ul>
+      <li>Use in dedicated welcome channels</li>
+      <li>Set appropriate thresholds for server size</li>
+      <li>Customize messages to match server theme</li>
+    </ul>
+  </Card>
+</CardGroup>
+
+## Available Variables
+<Note>You can find all the variables in the [/resources/variables](/resources/variables) page.</Note>

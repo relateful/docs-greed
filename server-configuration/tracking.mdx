@@ -1,0 +1,214 @@
+---
+title: "Tracking"
+description: "Track username changes and vanity URLs with notifications in Greed"
+icon: file-clock
+---
+
+The Tracking feature allows you to monitor username changes and vanity URL availability. Get notified when usernames become available or when server vanity URLs are dropped.
+
+## Requirements
+
+- Server must have at least one text channel for notifications
+- Bot must have permissions to:
+  - Send messages
+  - Embed links
+  - View channels
+
+## Username Tracking
+
+### Set Notification Channel
+
+<CodeGroup>
+
+```bash Syntax
+,tracking username channel (channel)
+```
+
+```bash Example
+,tracking username channel #username-changes
+```
+
+</CodeGroup>
+
+### Remove Notification Channel
+
+<CodeGroup>
+
+```bash Syntax
+,tracking username unset
+```
+
+```bash Example
+,tracking username unset
+```
+
+</CodeGroup>
+
+## Vanity URL Tracking
+
+### Set Vanity Channel
+
+<CodeGroup>
+
+```bash Syntax
+,tracking vanity set (channel)
+```
+
+```bash Example
+,tracking vanity set #vanity-updates
+```
+
+</CodeGroup>
+
+### Remove Vanity Channel
+
+<CodeGroup>
+
+```bash Syntax
+,tracking vanity unset
+```
+
+```bash Example
+,tracking vanity unset
+```
+
+</CodeGroup>
+
+## Notifications
+
+### Add Notification
+
+<CodeGroup>
+
+```bash Syntax
+,notify add (type) (name)
+```
+
+```bash Example
+,notify add vanity greed
+,notify add username coolname
+```
+
+</CodeGroup>
+
+Types:
+- `vanity`: Track server vanity URLs
+- `username`: Track usernames
+
+### List Notifications
+
+<CodeGroup>
+
+```bash Syntax
+,notify list
+```
+
+```bash Example
+,notify list
+```
+
+</CodeGroup>
+
+### Remove Notification
+
+<CodeGroup>
+
+```bash Syntax
+,notify remove (type) (name)
+```
+
+```bash Example
+,notify remove vanity greed
+,notify remove username coolname
+```
+
+</CodeGroup>
+
+## Lookup
+
+### Available Usernames
+
+<CodeGroup>
+
+```bash Syntax
+,lookup [length]
+,lookup usernames [length]
+```
+
+```bash Example
+,lookup 3
+,lookup usernames 4
+```
+
+</CodeGroup>
+
+### Available Vanities
+
+<CodeGroup>
+
+```bash Syntax
+,lookup vanities [length]
+```
+
+```bash Example
+,lookup vanities 3
+,lookup vanities 4
+```
+
+</CodeGroup>
+
+## Server Tags
+
+### View Tags
+
+<CodeGroup>
+
+```bash Syntax
+,tags [tag]
+```
+
+```bash Example
+,tags
+,tags fire
+```
+
+</CodeGroup>
+
+### Lookup by Tag
+
+<CodeGroup>
+
+```bash Syntax
+,tags lookup (tag)
+```
+
+```bash Example
+,tags lookup fire
+,tags lookup heart
+```
+
+</CodeGroup>
+
+### Submit Server
+
+<CodeGroup>
+
+```bash Syntax
+,tags submit (invite)
+```
+
+```bash Example
+,tags submit discord.gg/greed
+```
+
+</CodeGroup>
+
+<Note>
+- Usernames become available 14 days after being dropped
+- Vanity URLs become available 7 days after being dropped
+- Server submissions require a vanity URL and server icon
+</Note>
+
+<Warning>
+Make sure the bot has proper permissions in the notification channels to send messages and embeds.
+</Warning> 

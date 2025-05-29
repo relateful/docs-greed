@@ -1,0 +1,144 @@
+---
+title: "AntiRaid"
+description: "Protect your server from raid attempts and suspicious joins"
+icon: shield-check
+---
+
+The AntiRaid system provides protection against raid attempts by monitoring member joins, account age, and implementing server lockdown when necessary.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Administrator
+  - Ban members
+  - Kick members
+  - Moderate members
+  - Manage channels
+  - Send messages
+  - Embed links
+
+## Setup
+
+### Enable AntiRaid
+
+<CodeGroup>
+
+```bash Syntax
+,antiraid toggle
+```
+
+```bash Example
+,antiraid toggle
+```
+
+</CodeGroup>
+
+### Set Log Channel
+
+<CodeGroup>
+
+```bash Syntax
+,antiraid setlogchannel [channel]
+```
+
+```bash Example
+,antiraid setlogchannel #raid-log
+```
+
+</CodeGroup>
+
+## Commands
+
+### Account Age Settings
+
+<CodeGroup>
+
+```bash Syntax
+,antiraid age [days]
+```
+
+```bash Example
+,antiraid age 7
+```
+
+</CodeGroup>
+
+### Default Profile Picture Check
+
+<CodeGroup>
+
+```bash Syntax
+,antiraid defaultpfp
+```
+
+```bash Example
+,antiraid defaultpfp
+```
+
+</CodeGroup>
+
+### Punishment Settings
+
+<CodeGroup>
+
+```bash Syntax
+,antiraid punishment [ban/kick/timeout/jail]
+```
+
+```bash Example
+,antiraid punishment ban
+```
+
+</CodeGroup>
+
+### View Status
+
+<CodeGroup>
+
+```bash Syntax
+,antiraid status
+```
+
+```bash Example
+,antiraid status
+```
+
+</CodeGroup>
+
+## Features
+
+### Join Protection
+- Mass join detection
+- Account age verification
+- Default profile picture check
+- Automatic lockdown
+- Join rate monitoring
+
+### Punishment System
+- Ban option
+- Kick option
+- Timeout option
+- Jail option
+- Automatic action
+
+### Logging System
+- Detailed raid logs
+- Join tracking
+- Action logging
+- Channel management
+- Owner notifications
+
+### Lockdown System
+- Automatic activation
+- Channel permission management
+- Permission restoration
+- Join blocking
+- Manual control
+
+<Warning>
+The lockdown system will modify channel permissions. Make sure to test it in a safe environment first.
+</Warning>
+
+<Note>
+The system will automatically enable lockdown if more than 5 members join within 60 seconds.
+</Note> 

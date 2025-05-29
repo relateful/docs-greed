@@ -1,0 +1,163 @@
+---
+title: "Giveaway System"
+description: "Create and manage giveaways with customizable settings and automatic winner selection"
+icon: party-popper
+---
+
+The Giveaway system allows you to create, manage, and automate giveaways in your server with features like role requirements, entry limits, and automatic winner selection.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Send messages
+  - Embed links
+  - View channels
+  - Add reactions
+  - Manage messages
+
+## Commands
+
+### Start Giveaway
+
+<CodeGroup>
+
+```bash Syntax
+,giveaway start [duration] [winners] [prize] --role [role]
+```
+
+```bash Example
+,giveaway start 1h 1 Discord Nitro
+,giveaway start 24h 3 --role Member Discord Nitro
+```
+
+</CodeGroup>
+
+### End Giveaway
+
+<CodeGroup>
+
+```bash Syntax
+,giveaway end [message_id]
+```
+
+```bash Example
+,giveaway end 1234567890
+```
+
+</CodeGroup>
+
+### Reroll Winners
+
+<CodeGroup>
+
+```bash Syntax
+,giveaway reroll [message_id]
+```
+
+```bash Example
+,giveaway reroll 1234567890
+```
+
+</CodeGroup>
+
+### Blacklist Role
+
+<CodeGroup>
+
+```bash Syntax
+,giveaway blacklist [role]
+```
+
+```bash Example
+,giveaway blacklist @members
+```
+
+</CodeGroup>
+
+### Set Entry Limit
+
+<CodeGroup>
+
+```bash Syntax
+,giveaway setmax [max_entries] [role]
+```
+
+```bash Example
+,giveaway setmax 100 @vip
+```
+
+</CodeGroup>
+
+### Configure Notifications
+
+<CodeGroup>
+
+```bash Syntax
+,giveaway dmcreator [true/false]
+,giveaway dmwinners [true/false]
+```
+
+```bash Example
+,giveaway dmcreator true
+,giveaway dmwinners true
+```
+
+</CodeGroup>
+
+### Set Template
+
+<CodeGroup>
+
+```bash Syntax
+,giveaway template [embed_code]
+```
+
+```bash Example
+,giveaway template {embed} {title: Giveaway} {description: Prize: {prize}}
+```
+
+</CodeGroup>
+
+## Features
+
+### Giveaway Creation
+- Custom duration (minutes, hours, days)
+- Multiple winners support
+- Role requirements
+- Custom prize descriptions
+- Embed templates
+
+### Entry Management
+- Role-based entry limits
+- Blacklisted roles
+- Entry tracking
+- Weighted entries
+- Automatic validation
+
+### Winner Selection
+- Random winner selection
+- Multiple winner support
+- Reroll capability
+- DM notifications
+- Winner announcements
+
+### Customization
+- Custom embed templates
+- Role requirements
+- Entry limits per role
+- DM notifications
+- Blacklist management
+
+### Template Variables
+- {prize} - The giveaway prize
+- {ends} - Time until giveaway ends
+- {role} - Required role mention
+- {winners} - Number of winners
+
+<Warning>
+Giveaways cannot be edited after creation. Make sure all settings are correct before starting.
+</Warning>
+
+<Note>
+The bot will automatically clean up ended giveaways after 5 days to maintain database efficiency.
+</Note> 
