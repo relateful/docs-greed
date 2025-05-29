@@ -1,0 +1,152 @@
+---
+title: "Censor"
+description: "Automatically censor words in your server using webhooks"
+icon: eye-off
+---
+
+The Censor system allows you to automatically censor specific words in your server using webhooks, maintaining the original message appearance while replacing censored words with asterisks.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Manage Webhooks
+  - Send Messages
+  - Manage Messages
+  - View Channels
+  - Embed Links
+
+## Commands
+
+### Add Word
+
+<CodeGroup>
+
+```bash Syntax
+,censor add [word]
+```
+
+```bash Example
+,censor add work
+```
+
+</CodeGroup>
+
+### Remove Word
+
+<CodeGroup>
+
+```bash Syntax
+,censor remove [word]
+```
+
+```bash Example
+,censor remove work
+```
+
+</CodeGroup>
+
+### List Words
+
+<CodeGroup>
+
+```bash Syntax
+,censor list
+```
+
+```bash Example
+,censor list
+```
+
+</CodeGroup>
+
+### Clear Words
+
+<CodeGroup>
+
+```bash Syntax
+,censor clear
+```
+
+```bash Example
+,censor clear
+```
+
+</CodeGroup>
+
+### Add Preset
+
+<CodeGroup>
+
+```bash Syntax
+,censor preset
+```
+
+```bash Example
+,censor preset
+```
+
+</CodeGroup>
+
+<Info> 
+At the moment, the following preset is available: `work` which includes: `work, job, career, employment, office, boss, salary, wage, hire, fired, interview, resume, application, promotion, raise`
+</Info>
+
+## Features
+
+### Word Management
+- Add individual words to censor
+- Remove censored words
+- View all censored words
+- Clear all censored words
+- Add preset word lists
+
+### Message Handling
+- Automatic word detection
+- Case-insensitive matching
+- Preserves message formatting
+- Maintains original user appearance
+- Uses webhooks for seamless integration
+
+### Presets
+Currently available presets:
+
+#### Work
+A comprehensive list of work-related terms including:
+- work
+- job
+- career
+- employment
+- office
+- boss
+- salary
+- wage
+- hire
+- fired
+- interview
+- resume
+- application
+- promotion
+- raise
+
+### Webhook Management
+- Automatic webhook creation
+- Per-channel webhook storage
+- Rate limit handling
+- Error recovery
+- Efficient message processing
+
+<Warning>
+Messages containing censored words will be deleted and re-sent through a webhook. The original message will be lost.
+</Warning>
+
+<Note>
+The censor system uses webhooks to maintain the original message appearance. Each channel will have its own webhook created when needed.
+</Note>
+
+<Note>
+Rate limits are automatically handled for webhook operations. If a rate limit is hit, the system will wait and retry automatically.
+</Note>
+
+<Note>
+When using presets, only words that aren't already censored will be added to your server's censor list.
+</Note>

@@ -81,6 +81,7 @@
                   "miscs/base-commands/birthday"
                 ]
               },
+              "miscs/censor",
               "miscs/counter",
               "miscs/booster-role",
               "miscs/reminder",
