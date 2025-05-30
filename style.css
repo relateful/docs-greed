@@ -5,3 +5,11 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+#sidebar-content::-webkit-scrollbar {
+    display: none;
+}
+#sidebar-content {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
