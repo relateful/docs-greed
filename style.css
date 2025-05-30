@@ -1,6 +1,7 @@
 #sidebar::-webkit-scrollbar {
     display: none;
 }
+
 #sidebar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -9,7 +10,24 @@
 #sidebar-content::-webkit-scrollbar {
     display: none;
 }
+
 #sidebar-content {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+#sidebar-content {
+  overflow: hidden; 
+}
+
+#navigation-items {
+  scrollbar-width: none;        
+  -ms-overflow-style: none;     
+  overflow-y: auto;             
+  padding-right: 0.5rem;       
+}
+
+#navigation-items::-webkit-scrollbar {
+  display: none;              
+}
+
