@@ -1,0 +1,95 @@
+---
+title: "Sticky Message"
+description: "Keep important messages at the bottom of your channels"
+icon: pin
+---
+
+The Sticky Message feature allows you to pin important messages at the bottom of your channels. These messages will automatically stay at the bottom, even as new messages are sent.
+
+## Requirements
+
+- Bot must have permissions to:
+  - Send messages
+  - Manage messages
+  - View channels
+  - Embed links
+
+## Setup
+
+### Add Sticky Message
+
+<CodeGroup>
+
+```bash Syntax
+,stickymessage add <channel> <message>
+```
+
+```bash Example
+,stickymessage add #general {embed}{color: #24B8B8}$v{description: Welcome to our server! Please read the rules in #rules}$v{content: {user.mention}}
+```
+
+</CodeGroup>
+
+### Remove Sticky Message
+
+<CodeGroup>
+
+```bash Syntax
+,stickymessage remove <channel>
+```
+
+```bash Example
+,stickymessage remove #general
+```
+
+</CodeGroup>
+
+## Viewing Messages
+
+### List All Sticky Messages
+
+<CodeGroup>
+
+```bash Syntax
+,stickymessage list
+```
+
+```bash Example
+,stickymessage list
+```
+
+</CodeGroup>
+
+### View Specific Sticky Message
+
+<CodeGroup>
+
+```bash Syntax
+,stickymessage view <channel>
+```
+
+```bash Example
+,stickymessage view #general
+```
+
+</CodeGroup>
+
+## Variables
+
+### Message Variables
+- `{user}` - User object
+- `{user.mention}` - User mention
+- `{user.name}` - Username
+- `{guild}` - Server object
+- `{channel}` - Channel object
+
+<Note>
+- Sticky messages are automatically moved to the bottom when new messages are sent
+- Messages support both regular text and embeds
+- Only one sticky message can be set per channel
+- Messages are updated with a 3-second delay to prevent spam
+</Note>
+
+<Warning>
+Make sure the bot has proper permissions in the channel where the sticky message will be placed.
+</Warning> 
