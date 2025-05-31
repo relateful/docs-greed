@@ -1,0 +1,43 @@
+---
+title: "Beta Disclosure"
+description: "Important information about the beta status of the Greed Dashboard."
+icon: "triangle-alert"
+---
+
+# Beta Disclosure
+
+<Warning>
+The Greed Dashboard is currently in **beta**. Features, functionality, and appearance are subject to change at any time.
+</Warning>
+
+By using the Greed Dashboard, you acknowledge and agree to the following:
+
+- The dashboard is in active development and may contain bugs, incomplete features, or unexpected behavior.
+- Data loss, configuration errors, or other issues may occur. Always keep backups of important server settings and data.
+- The Greed team is **not responsible** for any loss, damage, or disruption caused by the use of the dashboard during the beta period.
+- Access to the dashboard may be revoked, limited, or changed without notice.
+- Feedback and bug reports are encouraged and help us improve the platform for everyone.
+
+If you encounter any issues, please report them in our [Discord server](https://discord.gg/greedbot).
+
+<Note>
+By continuing to use the dashboard, you accept these terms and understand the risks associated with beta software.
+</Note> 
+
+# Additional Information:
+
+<Info> 
+Greed's dashboard is intensively cached on any API GET routes, meaning users who have just lost their roles may be able to view settings momentarily. **However, they will not be able to update any settings if they do not have permissions at time of request.¹**
+</Info>
+<Info>
+Guilds are cached for 5 to 15 minutes, depending on previous patterns recorded from your hashed IP address.
+</Info>
+<Warning>
+**Please note:** Admins of the server you are trying to access on the Dashboard may have enabled Dashboard logging (`,dashboard logs`) which will send all actions, your User ID and first 15 digits of your **hashed IP address²**
+</Warning>
+<Warning>
+Greed's website utilisies Cloudflare Enterprise's Addon for API routes, hence additional logs may be stored and attempts to breach will be logged.
+</Warning>
+1: By default `GET` API Requests rely on cached permission checks while `POST` API Requests actively check the permission at the time the request was made.
+
+2: We never store your raw IP Address on our systems, we hash the IPs first then store them. **Hashing is not encryption, a hashed IP address cannot be reversed back to the raw IP address.** [More about hashed IP addresses](https://fidelissecurity.com/cybersecurity-101/learn/what-is-hashing/#:~:text=Hashing%20in%20cybersecurity%20is%20a,sensitive%20information%20from%20unauthorized%20access.) 

@@ -109,9 +109,25 @@
         "icon": "terminal",
         "groups": [
           {
-            "group": "Coming soon",
+            "group": "Getting Started",
             "pages": [
-              "dashboard/coming-soon"
+              "dashboard/overview",
+              "dashboard/early-access",
+              "dashboard/disclosure"
+            ]
+          },
+          {
+            "group": "Features",
+            "pages": [
+              "dashboard/features"
+            ]
+          },
+          {
+            "group": "Configuration",
+            "pages": [
+              "dashboard/configuration/logging",
+              "dashboard/configuration/auto-responder",
+              "dashboard/configuration/reactions"
             ]
           }
         ]
