@@ -31,3 +31,27 @@
   display: none;              
 }
 
+:root {
+  --greed-primary: #B3A4C8;
+  --greed-secondary: #766A87;
+  --greed-dark: #221F27;
+  --greed-light: #A08EB3;
+  --greed-dim: #2D2733;
+  --greed-border: #504759;
+}
+
+#content {
+  background-color: var(--greed-dark);
+  color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--greed-primary);
+}
+
+h1, h2 {
+  background: linear-gradient(to right, #fff, var(--greed-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
