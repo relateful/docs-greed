@@ -1,0 +1,200 @@
+---
+title: "Vanity Rewards"
+description: "Manage vanity URL settings and rewards for your server through our partnership with Prox"
+icon: link
+---
+
+The Vanity feature is powered by our partnership with [Prox](https://prox.bot), a powerful vanity URL management bot. This integration allows you to manage vanity URL settings and rewards for your server, including welcome messages, channels, and role rewards.
+
+## Requirements
+
+- [Prox Bot](https://discordapp.com/oauth2/authorize?client_id=1376549720553558106&scope=bot+applications.commands&permissions=8) must be in your server
+- Bot must have permissions to:
+  - Send messages
+  - Embed links
+  - Manage roles
+  - View channels
+  - Manage webhooks
+
+<Note>
+You must invite Prox to your server before using any vanity features. Greed will automatically detect if Prox is present and guide you through the setup process.
+</Note>
+
+## Setup
+
+### Invite Prox
+
+First, you need to invite Prox to your server. You can do this by:
+1. Clicking the [Prox Bot](https://discordapp.com/oauth2/authorize?client_id=1376549720553558106&scope=bot+applications.commands&permissions=8) link
+2. Selecting your server
+3. Authorizing the bot
+
+<Warning>
+Make sure to give Prox the necessary permissions during the invite process. The bot requires administrator permissions to function properly.
+</Warning>
+
+### Set Up Vanity URL
+
+<CodeGroup>
+
+```bash Syntax
+,vanity setup <vanity>
+```
+
+```bash Example
+,vanity setup greed
+```
+
+</CodeGroup>
+
+<Note>
+The vanity URL must be unique across all Discord servers. If your chosen vanity is already taken, you'll need to choose a different one.
+</Note>
+
+### Set Welcome Message
+
+<CodeGroup>
+
+```bash Syntax
+,vanity message <message>
+```
+
+```bash Example
+,vanity message {embed}$v{title: Thank you {user.mention} for repping /{vanity}!}
+```
+
+</CodeGroup>
+
+<Note>
+Welcome messages support Greed's powerful script system, allowing you to create rich, dynamic messages with embeds, variables, and more.
+</Note>
+
+### Set Welcome Channel
+
+<CodeGroup>
+
+```bash Syntax
+,vanity channel <channel>
+```
+
+```bash Example
+,vanity channel #welcome
+```
+
+</CodeGroup>
+
+## Role Management
+
+### Add Role Reward
+
+<CodeGroup>
+
+```bash Syntax
+,vanity role <role>
+```
+
+```bash Example
+,vanity role @VIP
+```
+
+</CodeGroup>
+
+<Note>
+Role rewards are automatically assigned to users when they join your server through the vanity URL. You can set multiple role rewards.
+</Note>
+
+### Remove Role Reward
+
+<CodeGroup>
+
+```bash Syntax
+,vanity removerole <role>
+```
+
+```bash Example
+,vanity removerole @VIP
+```
+
+</CodeGroup>
+
+### List Role Rewards
+
+<CodeGroup>
+
+```bash Syntax
+,vanity rewards
+```
+
+```bash Example
+,vanity rewards
+```
+
+</CodeGroup>
+
+## Settings
+
+### View Settings
+
+<CodeGroup>
+
+```bash Syntax
+,vanity settings
+```
+
+```bash Example
+,vanity settings
+```
+
+</CodeGroup>
+
+## Features
+
+### Vanity URL Management
+- Set up custom vanity URL for your server (e.g., discord.gg/yourname)
+- Configure welcome messages with variables
+- Designate welcome channels
+- Manage role rewards
+- Real-time vanity URL updates
+
+### Message Variables
+- `{user.mention}` - Mentions the user
+- `{vanity}` - The vanity URL string
+- All default Greed variables
+- Full support for Greed's script system
+
+### Role Rewards
+- Add multiple role rewards
+- Automatically assign roles to users
+- Easy role management
+- List all current rewards
+- Instant role assignment on join
+
+### Settings Overview
+- View all vanity settings in one place
+- See configured channels
+- Check current message
+- List all role rewards
+- Monitor vanity URL status
+
+### Prox Integration
+- Seamless integration with Prox bot
+- Automatic vanity URL management
+- Real-time updates and changes
+- Reliable and fast service
+- Professional vanity URL handling
+
+<Note>
+- Vanity URL must be set up before using other features
+- Welcome messages support Greed's script system
+- Role rewards are automatically assigned
+- Settings are server-specific
+- Prox bot must remain in your server for vanity features to work
+</Note>
+
+<Warning>
+Make sure the bot has proper permissions to manage roles and send messages in the designated channels. Prox requires administrator permissions to function properly.
+</Warning>
+
+<Info>
+For more information about Prox and its features, visit [prox.bot](https://prox.bot).
+</Info> 

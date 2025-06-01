@@ -57,6 +57,7 @@
               },
               "server-configuration/starboard",
               "server-configuration/sticky-message",
+              "server-configuration/vanity",
               "server-configuration/voicemaster",
               "server-configuration/tracking",
               "server-configuration/levels",
