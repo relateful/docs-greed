@@ -6,7 +6,7 @@ icon: tickets
 
 # Tickets
 
-The Tickets system allows you to create a support ticket system with customizable topics, roles, and categories.
+The Tickets system allows you to create a comprehensive support ticket system with customizable topics, roles, categories, logging, inactivity checks, and DM notifications.
 
 <Note>
 The bot requires the **Manage Channels** permission to create and manage tickets.
@@ -31,7 +31,11 @@ You must have the **Manage Server** permission to set up tickets.
 You can customize the ticket panel using the following flags:
 
 ```bash
-,ticket setup #channel --code="{embed}{color: #2b2d31}$v{title: Create a ticket}$v{description: Click the button below to create a ticket}"
+# Basic setup with custom embed
+,ticket setup #channel --code "{embed}{color: #2b2d31}$v{title: Create a ticket}$v{description: Click the button below to create a ticket}"
+
+# Custom emojis for buttons
+,ticket setup #channel --open=🎫 --delete=🗑️
 ```
 
 <Note>
@@ -62,79 +66,125 @@ Set a category where tickets will be created:
 
 ## Ticket Topics
 
-### Adding Topics
+### Managing Topics
 
-Add topics that users can select when creating a ticket:
+Access the topics management menu:
 
 ```bash
 ,ticket topics
 ```
 
-<Note>
-This will open an interactive menu where you can:
-- Add new topics
-- Remove existing topics
-- Manage topic settings
-</Note>
+This interactive menu allows you to:
+1. Add new topics
+2. Remove existing topics
+3. Manage topic settings
 
-### Topic Settings
+### Topic Configuration
 
 For each topic, you can configure:
-- Access roles
-- Category channel
-- Description
 
-<Warning>
-If a topic has no specific roles assigned, the default support role will have access.
-</Warning>
+1. **Access Roles**
+   - Assign specific roles that can access tickets in this topic
+   - Multiple roles can be added per topic
+   - If no roles are assigned, default support role is used
 
-## Managing Tickets
+2. **Category Channel**
+   - Set a specific category for tickets in this topic
+   - Overrides the default ticket category
+   - Useful for organizing different types of tickets
 
-### Adding Users
+3. **Description**
+   - Add a description that users see when selecting the topic
+   - Helps users choose the correct topic for their issue
 
-Add a user to a ticket:
+## Ticket Management
+
+### In-Ticket Controls
+
+Each ticket has the following controls:
+- **Close** (🔒) - Makes the ticket read-only
+- **Transcript** (📑) - Creates a transcript of the ticket
+- **Delete** (🗑️) - Permanently deletes the ticket
+
+### User Management
 
 ```bash
+# Add a user to a ticket
 ,ticket add @user
-```
 
-<Note>
-The user will be able to view and send messages in the ticket.
-</Note>
-
-### Removing Users
-
-Remove a user from a ticket:
-
-```bash
+# Remove a user from a ticket
 ,ticket remove @user
-```
 
-<Warning>
-The user will lose access to the ticket after being removed.
-</Warning>
-
-### Renaming Tickets
-
-Rename a ticket channel:
-
-```bash
+# Rename a ticket
 ,ticket rename new-name
 ```
 
-### Closing Tickets
+## Advanced Features
 
-Close a ticket:
+### Inactivity Checking
+
+Enable automatic inactivity checking:
 
 ```bash
-,ticket close
+# Enable/disable inactivity checking
+,ticket inactivity true/false
+
+# Set inactivity timeout (in hours)
+,ticket timeout 24
 ```
 
-<Warning>
-The ticket channel will be deleted after 5 seconds.
-</Warning>
+<Note>
+When a ticket is inactive for the specified duration:
+- A warning message is sent
+- Close and Delete buttons are provided
+- Staff is notified through logs if enabled
+</Note>
 
-## Settings
+### DM Notifications
+
+Configure DM notifications for ticket updates:
+
+```bash
+,ticket dms true/false
+```
+
+Users will receive DM notifications for:
+- Ticket closure
+- Ticket deletion (including transcript ID)
+
+### Logging System
+
+Set up ticket logging:
+
+```bash
+# Set log channel
+,ticket logs channel #channel
+
+# Configure log events
+,ticket logs events
+```
+
+Available log events:
+- ticket_create
+- ticket_close
+- ticket_delete
+- ticket_transcript
+- ticket_member_leave
+- ticket_inactive
+
+### Transcripts
+
+Transcripts are automatically created when:
+- Using the Transcript button
+- Deleting a ticket
+
+Each transcript includes:
+- Complete message history
+- Member information (roles, colors)
+- Ticket metadata (opener, staff, topic)
+- Unique transcript ID for reference
+
+## Settings & Maintenance
 
 ### View Settings
 
@@ -144,48 +194,84 @@ Check your ticket settings:
 ,ticket settings
 ```
 
-This will show:
+Displays:
 - Support role
 - Channel category
-- Number of topics
+- Topics configuration
 - Opening ticket embed
+- DM notifications status
+- Inactivity check settings
+- Logging configuration
+
+### Send Panel
+
+Update ticket panel without changing settings:
+
+```bash
+,ticket send #channel
+```
 
 ### Reset System
 
-Reset the ticket system:
+Reset the entire ticket system:
 
 ```bash
 ,ticket reset
 ```
 
 <Warning>
-This will disable all existing ticket panels and remove all ticket configurations.
+This will:
+- Disable all existing ticket panels
+- Remove all ticket configurations
+- Delete all topic settings
 </Warning>
 
 ## Best Practices
 
-1. **Organize Topics**: Create clear, specific topics to help users select the right category.
+1. **Topic Organization**
+   - Create clear, specific topics
+   - Add descriptive explanations
+   - Assign appropriate categories
 
-2. **Role Management**: Assign appropriate roles to topics to ensure the right staff members have access.
+2. **Role Management**
+   - Use topic-specific roles for specialized support
+   - Set up a default support role as fallback
+   - Ensure proper role hierarchy
 
-3. **Clear Instructions**: Use the ticket panel embed to provide clear instructions for users.
+3. **Logging & Monitoring**
+   - Enable comprehensive logging
+   - Set appropriate inactivity timeouts
+   - Monitor transcript creation
 
-4. **Regular Maintenance**: Periodically check and update your ticket settings and topics.
+4. **User Experience**
+   - Customize embed descriptions
+   - Enable DM notifications
+   - Organize categories logically
 
 <Note>
-You can use the interactive UI at greed.best/embed to create beautiful ticket panels.
+Use the interactive UI at greed.best/embed to create beautiful ticket panels with custom colors and formatting.
 </Note>
 
-## Common Issues
+## Troubleshooting
 
-1. **Missing Permissions**: Ensure the bot has the **Manage Channels** permission.
+1. **Missing Permissions**
+   - Bot needs **Manage Channels**
+   - Support roles need proper permissions
+   - Check category permissions
 
-2. **Role Hierarchy**: Make sure the bot's role is above the support role.
+2. **Role Hierarchy**
+   - Bot's role must be above support roles
+   - Check server role order
 
-3. **Category Access**: Verify the bot has access to the ticket category.
+3. **Category Access**
+   - Verify bot can manage categories
+   - Check category permission syncing
 
-4. **Panel Updates**: Use `,ticket send` to update the ticket panel without changing settings.
+4. **Notifications**
+   - Users must accept DMs for notifications
+   - Check log channel permissions
+   - Verify webhook permissions
 
 <Warning>
-Always test the ticket system in a safe environment before deploying it to your main server.
+Always test new configurations in a controlled environment before deploying to production channels.
 </Warning> 
