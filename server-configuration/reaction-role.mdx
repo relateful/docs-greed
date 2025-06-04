@@ -6,6 +6,9 @@ icon: smile-plus
 
 The Reaction Roles feature allows you to create interactive role selection menus where users can get roles by reacting to messages with specific emojis.
 
+<Info>
+The parameter has been updated from `[message]` to `[message link]` to better reflect its purpose and improve clarity for users.
+</Info>
 ## Requirements
 
 - Bot must have permissions to:
@@ -22,12 +25,12 @@ The Reaction Roles feature allows you to create interactive role selection menus
 <CodeGroup>
 
 ```bash Syntax
-,reactionrole add [message] [emoji] [role]
+,reactionrole add [message link] [emoji] [role]
 ```
 
 ```bash Example
 ,reactionrole add #roles :verified: @Verified
-,reactionrole add 123456789 :star: @Member
+,reactionrole add https://discord.com/channels/1301617147964821524/1373516665186422897/1379749450611822623 :star: @Member
 ```
 
 </CodeGroup>
@@ -41,11 +44,11 @@ You can reply to a message or provide a message ID/link. The bot will automatica
 <CodeGroup>
 
 ```bash Syntax
-,reactionrole remove [message] [emoji]
+,reactionrole remove [message id] [emoji]
 ```
 
 ```bash Example
-,reactionrole remove #roles :verified:
+,reactionrole remove 1379749450611822623 :verified:
 ```
 
 </CodeGroup>

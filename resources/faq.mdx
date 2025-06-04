@@ -1,0 +1,83 @@
+---
+title: "Frequently Asked"
+description: "Common questions about Greed and their answers"
+icon: "message-circle-question"
+---
+
+## General
+
+### What's the bot prefix?
+The default prefix is `,` (comma). If you've set a custom prefix and can't remember it, simply mention the bot (@greed) and it will tell you your server's current prefix.
+
+## Moderation
+
+### How do I remove a hardban from someone?
+To remove a hardban, use the same command that applies it. The command will automatically detect if the user is hardbanned and remove it:
+
+```bash
+,hardban [user id]
+```
+
+If the user is already hardbanned, this will remove the hardban. If they're not, it will apply one.
+
+### How long are snipes stored for?
+Snipes are stored in memory using Redis and are kept for:
+- Maximum of 2 hours
+- Until the bot restarts
+- Whichever comes first
+
+## Data & Privacy
+
+### Does Greed automatically delete server data if I remove it?
+Yes, Greed automatically cleans up your server data when removed:
+
+1. When Greed detects a 404 error on any feature (autopfp, welcome messages, etc.)
+2. It attempts to verify the error 3 more times
+3. If the error persists, all server data is automatically deleted from our database
+
+This ensures your data isn't stored unnecessarily after removing the bot.
+
+## Dashboard Access
+
+### How do I access the dashboard?
+The dashboard is currently in beta testing and access is limited. To apply for beta access:
+
+1. Visit our [Early Access page](/dashboard/early-access)
+2. Follow the application process
+3. Wait for approval from our team
+
+We're gradually expanding access to ensure a smooth experience for all users.
+
+## Premium Features
+
+### Does Greed have premium features?
+Currently, Greed does not have any premium features. While we plan to introduce premium options in the future, we are committed to:
+
+- Maintaining a great free user experience
+- Keeping core features accessible to everyone
+- Only adding premium features that enhance rather than restrict functionality
+
+## Scripting System
+
+### Does Greed's script system work with other bots' scripts?
+Yes! Greed's scripting system is compatible with scripts from other popular Discord bots. This means you can:
+
+- Use existing scripts from other bots
+- Port your scripts from other bots to Greed
+- Share scripts between different bot communities
+
+<Note>
+While most scripts are compatible, some bot-specific features might require minor adjustments. Check our [Scripting Guide](/resources/scripting) for more details.
+</Note>
+
+## Need More Help?
+
+If you can't find the answer to your question here, you can:
+
+- Join our [Discord server](https://discord.gg/greedbot) for support
+- Check our [documentation](/) for detailed guides
+- Use the `,help` command in your server
+
+<Info>
+Our documentation is regularly updated based on user feedback and common questions. If you think something should be added to the FAQ, let us know!
+</Info>

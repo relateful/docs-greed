@@ -98,6 +98,7 @@
           {
             "group": "Resources",
             "pages": [
+              "resources/faq",
               "resources/scripting",
               "resources/variables",
               "resources/permissions"
