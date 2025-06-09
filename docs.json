@@ -172,6 +172,11 @@
       "href": "https://greed.best/commands"
     }
   },
+  "integrations": {
+    "posthog": {
+        "apiKey": "phc_ds8DUIOmRamXtLOekJPgdUJ5sIYxUyagooTn3Y3ZI0k",
+    }
+  },
   "footer": {
     "socials": {
       "github": "https://github.com/greedbest",
