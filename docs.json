@@ -68,7 +68,8 @@
               "server-configuration/join-to-leave",
               "server-configuration/reaction-role",
               "server-configuration/restriction",
-              "server-configuration/tickets"
+              "server-configuration/tickets",
+              "server-configuration/invoke"
             ]
           },
           {
