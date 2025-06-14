@@ -1,0 +1,121 @@
+---
+title: "Invoke Messages"
+description: "Customize moderation command responses with dynamic variables and embeds."
+icon: chat-bubble-left-right
+---
+
+# Invoke Messages
+
+The **Invoke** system lets you fully customize the messages sent when moderation commands (like kick, ban, warn, etc.) are used. You can set unique messages for each command, use variables (like `{reason}` or `{warning_count}`), and choose whether the message is sent in the channel or as a DM.
+
+## Features
+- Custom messages for each moderation command
+- Supports both channel and DM messages
+- Use variables for dynamic content (user, moderator, reason, etc.)
+- Supports embeds, buttons, and advanced formatting
+- Selection-based removal for easy management
+
+## Supported Commands
+You can set invoke messages for:
+- kick
+- hardban
+- ban
+- softban
+- unban
+- timeout
+- untimeout
+- strip
+- jail
+- unjail
+- warn
+
+## Available Variables
+Each command supports a set of variables you can use in your message template. Example variables:
+- `{reason}` — The reason for the action
+- `{warning_count}` — Number of warnings (for warn)
+- `{moderator.id}` — Moderator's user ID
+- `{moderator.mention}` — Moderator's mention
+- `{moderator.name}` — Moderator's username
+
+See `,invoke view [command]` for the full list for each command.
+
+## Setup & Usage
+
+### Enable Invoke Messages for a Command
+```bash
+,invoke setup [command]
+```
+Example:
+```bash
+,invoke setup kick
+```
+
+### Set or Edit the Message
+```bash
+,invoke message [command] [message] [--message_type dm/message]
+```
+- `--message_type dm` — Send as DM
+- `--message_type message` — Send in channel (default)
+
+Example:
+```bash
+,invoke message kick {embed}$v{title: Kick}{description: {user} was kicked for {reason}} --message_type message
+```
+
+### Remove an Invoke Message
+You can remove by specifying the command and type, or by selection:
+```bash
+,invoke remove [command] [message_type]
+,invoke remove select:N
+```
+- Example: `,invoke remove kick message`
+- Example: `,invoke remove select:1` (see the list with `,invoke list`)
+
+### View Current Message
+```bash
+,invoke view [command]
+```
+
+### List All Invoke Messages
+```bash
+,invoke list
+```
+
+### Reset/Disable for a Command
+```bash
+,invoke reset [command]
+```
+
+### View All Settings
+```bash
+,invoke settings
+```
+
+### Test a Message
+```bash
+,invoke test [command]
+```
+
+## Advanced Formatting
+- Use `{embed}` and `$v` for embed formatting.
+- You can use Discord markdown, variables, and even buttons or stickers (see advanced docs).
+
+## Best Practices
+- Always test your message with `,invoke test [command]` before going live.
+- Use variables to make messages informative and personal.
+- Set both channel and DM messages if you want users to be notified privately and publicly.
+- Use selection-based removal for easy management if you have many invoke messages.
+
+## Example Workflow
+```bash
+,invoke setup warn
+,invoke message warn {embed}$v{title: Warn}{description: {user} was warned for {reason} (Warning #{warning_count})} --message_type message
+,invoke message warn {embed}$v{title: Warn}{description: You have been warned in {guild.name} for {reason}} --message_type dm
+,invoke view warn
+,invoke list
+,invoke remove warn message
+```
+
+<Warning>
+If you use variables not supported by the command, your message will not be saved. Use `,invoke view [command]` to see allowed variables.
+</Warning> 

@@ -1,218 +1,154 @@
 ---
 title: "AntiNuke"
-description: "Protect your server from malicious actions and server nuking"
+description: "Comprehensive protection against server nuking and malicious actions."
 icon: shield-alert
 ---
 
-<Note>
-We've introduced a new interactive security setup command! Use `,security` to configure AntiRaid, AntiNuke, and AutoMod settings through an easy-to-use interface.
-</Note>
+# AntiNuke
 
-<Warning>
-The old configuration methods still work, but we recommend using the new `,security` command for a better setup experience.
-</Warning>
+AntiNuke protects your server from mass destruction, malicious admin actions, and unauthorized changes. It covers roles, channels, webhooks, bans, kicks, integrations, vanity URL, emojis, stickers, and more.
 
-The AntiNuke system provides comprehensive protection against malicious actions that could harm your server, such as mass role deletion, channel deletion, and unauthorized bot additions.
+## Features
+- **Bot Add Protection**: Prevents unauthorized bots from joining.
+- **Role/Channel Protection**: Stops mass role/channel creation, deletion, and updates.
+- **Webhook Protection**: Cleans up and prevents unauthorized webhooks.
+- **Guild Protection**: Protects server settings, vanity URL, icon, and banner.
+- **Kick/Ban/Prune Protection**: Detects and stops mass kicks, bans, and member pruning.
+- **Emoji/Sticker Protection**: Prevents mass emoji/sticker changes.
+- **Integration Protection**: Monitors and blocks suspicious integration changes.
+- **Rate Limiting**: Configurable thresholds for each action.
+- **Automatic Recovery**: Restores deleted roles/channels, permissions, and webhooks.
+- **Trust & Whitelist System**: Allow trusted users to bypass protection.
+- **Detailed Logging**: Tracks all actions and punishments.
 
 ## Requirements
-
-- Bot must have permissions to:
-  - Administrator
-  - Ban members
-  - Kick members
-  - Manage roles
-  - Manage channels
-  - View audit logs
-  - Send messages
-  - Embed links
+- Bot must have permissions: Administrator, Ban Members, Kick Members, Manage Roles, Manage Channels, View Audit Logs, Send Messages, Embed Links.
 
 ## Setup
 
-### Interactive Setup (Recommended)
+### Enable AntiNuke
 
-<CodeGroup>
-
-```bash Syntax
-,security
+```bash
+,antinuke toggle on
 ```
 
-```bash Example
-,security
+### Disable AntiNuke
+
+```bash
+,antinuke toggle off
 ```
 
-</CodeGroup>
+### Enable/Disable Individual Modules
 
-This will open an interactive menu where you can:
-- Configure all AntiNuke settings
-- Set up AntiRaid protection
-- Configure AutoMod features
-- Set punishments and thresholds
-- Manage whitelists and trusted users
-
-### Manual Setup
-
-#### Enable AntiNuke
-
-<CodeGroup>
-
-```bash Syntax
-,antinuke toggle
+```bash
+,antinuke [module] [on/off] [--threshold N] [--do punishment]
 ```
 
-```bash Example
-,antinuke toggle
+**Example:**
+```bash
+,antinuke botadd on --threshold 5 --do ban
+,antinuke role off
 ```
 
-</CodeGroup>
+#### Available Modules
+- `bot_add` — Bot join protection
+- `role_update` — Role update protection
+- `role_create` — Role creation protection
+- `channel_update` — Channel update protection
+- `channel_create` — Channel creation protection
+- `guild_update` — Server settings/vanity protection
+- `kick` — Mass kick protection
+- `ban` — Mass ban protection
+- `member_prune` — Member prune protection
+- `webhooks` — Webhook protection
+- `emoji_update` — Emoji update protection
+- `emoji_create` — Emoji creation protection
+- `sticker_update` — Sticker update protection
+- `sticker_create` — Sticker creation protection
+- `integration` — Integration protection
 
-#### Set Punishment
+### Set Thresholds
+Set how many actions trigger punishment:
+```bash
+,antinuke threshold [module] [number]
+```
+Example:
+```bash
+,antinuke threshold bot_add 3
+```
 
-<CodeGroup>
-
-```bash Syntax
+### Set Punishment
+Choose what happens when a user triggers AntiNuke:
+```bash
 ,antinuke punishment [ban/kick/strip]
 ```
 
-```bash Example
-,antinuke punishment ban
+### Trust & Whitelist
+- **Trust (Admin):**
+  - Allow a user to manage AntiNuke settings:
+    ```bash
+    ,antinuke trust @user
+    ,antinuke trust remove @user
+    ,antinuke trusted
+    ```
+- **Whitelist:**
+  - Allow a user to bypass all AntiNuke checks:
+    ```bash
+    ,antinuke whitelist @user
+    ,antinuke whitelist remove @user
+    ,antinuke whitelisted
+    ```
+
+### View & List Settings
+- View all settings:
+  ```bash
+  ,antinuke settings
+  ```
+- List all modules and whitelisted users:
+  ```bash
+  ,antinuke list
+  ```
+
+### Recovery & Cleanup
+- **Automatic Recovery:**
+  - Deleted roles/channels/webhooks are restored automatically.
+- **Manual Cleanup:**
+  - Remove invalid whitelist/admin entries:
+    ```bash
+    ,antinuke cleanup
+    ```
+
+### All-in-One Toggle
+Enable or disable all modules at once:
+```bash
+,antinuke all on
+,antinuke all off
 ```
 
-</CodeGroup>
+### Module Reference
+- `,antinuke modules` — List all available modules
 
-## Protection Modules
-
-### Bot Protection
-- Prevents unauthorized bot additions
-- Configurable threshold for bot joins
-- Automatic punishment for violations
-
-### Role Protection
-- Monitors role creation and deletion
-- Prevents mass role modifications
-- Tracks role permission changes
-
-### Channel Protection
-- Monitors channel creation and deletion
-- Prevents mass channel modifications
-- Tracks channel permission changes
-
-### Webhook Protection
-- Monitors webhook creation and deletion
-- Prevents unauthorized webhook usage
-- Automatic webhook cleanup
-
-### Guild Protection
-- Monitors server settings changes
-- Protects vanity URL changes
-- Tracks server icon and banner changes
-
-### Member Protection
-- Monitors mass kicks and bans
-- Prevents member pruning
-- Tracks member role changes
-
-### Emoji & Sticker Protection
-- Monitors emoji and sticker changes
-- Prevents mass emoji/sticker deletion
-- Tracks emoji/sticker modifications
-
-## Commands
-
-### Module Configuration
-
-<CodeGroup>
-
-```bash Syntax
-,antinuke [module] [on/off] --threshold [number] --do [punishment]
-```
-
-```bash Example
-,antinuke botadd on --threshold 5 --do ban
-```
-
-</CodeGroup>
-
-Available modules:
-- `botadd` - Bot join protection
-- `role` - Role modification protection
-- `channel` - Channel modification protection
-- `webhooks` - Webhook protection
-- `guild` - Server settings protection
-- `kick` - Mass kick protection
-- `ban` - Mass ban protection
-- `member_prune` - Member pruning protection
-- `emoji` - Emoji/sticker protection
-- `integration` - Integration protection
-
-### Trust Management
-
-<CodeGroup>
-
-```bash Syntax
-,antinuke trust [user]
-```
-
-```bash Example
-,antinuke trust @user
-```
-
-</CodeGroup>
-
-### Whitelist Management
-
-<CodeGroup>
-
-```bash Syntax
-,antinuke whitelist [user]
-```
-
-```bash Example
-,antinuke whitelist @user
-```
-
-</CodeGroup>
-
-### View Settings
-
-<CodeGroup>
-
-```bash Syntax
+## Example Usage
+```bash
+,antinuke toggle on
+,antinuke botadd on --threshold 2 --do ban
+,antinuke role_update on --threshold 3 --do kick
+,antinuke punishment strip
+,antinuke trust @AdminUser
+,antinuke whitelist @TrustedUser
 ,antinuke settings
 ```
 
-```bash Example
-,antinuke settings
-```
-
-</CodeGroup>
-
-## Features
-
-### Rate Limiting
-- Configurable thresholds per action
-- Time-based rate limiting
-- Automatic punishment triggers
-
-### Action Tracking
-- Detailed audit log monitoring
-- Action history tracking
-- Violation detection
-
-### Automatic Recovery
-- Channel restoration
-- Role restoration
-- Permission restoration
-- Webhook cleanup
-
-### Trust System
-- Trusted user management
-- Whitelist system
-- Admin permissions
+## Best Practices
+- Always set up trusted users and whitelist your staff to avoid false positives.
+- Regularly review your settings with `,antinuke settings`.
+- Use thresholds that match your server's activity.
+- Test the system in a safe environment before going live.
 
 <Warning>
-Make sure to properly configure trusted users and whitelists to prevent false positives.
+Improper configuration may result in staff or bots being punished. Always whitelist and trust your staff and bots.
 </Warning>
 
 <Note>
-For protection against raid attempts, check out our [AntiRaid](/antiraid) documentation.
+For raid protection, see the [AntiRaid](/antiraid) documentation.
 </Note> 
