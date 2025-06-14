@@ -1,39 +1,71 @@
 ---
 title: "AntiNuke"
-description: "Protect your server from malicious actions and unauthorized changes"
-icon: fingerprint
+description: "Protect your server from malicious actions and server nuking"
+icon: shield-alert
 ---
 
-The AntiNuke system provides comprehensive protection against malicious actions in your server, including role management, channel modifications, webhook creation, and more.
+<Note>
+We've introduced a new interactive security setup command! Use `,security` to configure AntiRaid, AntiNuke, and AutoMod settings through an easy-to-use interface.
+</Note>
+
+<Warning>
+The old configuration methods still work, but we recommend using the new `,security` command for a better setup experience.
+</Warning>
+
+The AntiNuke system provides comprehensive protection against malicious actions that could harm your server, such as mass role deletion, channel deletion, and unauthorized bot additions.
 
 ## Requirements
 
 - Bot must have permissions to:
   - Administrator
-  - View audit logs
-  - Manage roles
-  - Manage channels
   - Ban members
   - Kick members
-  - Manage webhooks
+  - Manage roles
+  - Manage channels
+  - View audit logs
+  - Send messages
+  - Embed links
 
 ## Setup
 
-### Enable AntiNuke
+### Interactive Setup (Recommended)
 
 <CodeGroup>
 
 ```bash Syntax
-,antinuke enable
+,security
 ```
 
 ```bash Example
-,antinuke enable
+,security
 ```
 
 </CodeGroup>
 
-### Set Punishment
+This will open an interactive menu where you can:
+- Configure all AntiNuke settings
+- Set up AntiRaid protection
+- Configure AutoMod features
+- Set punishments and thresholds
+- Manage whitelists and trusted users
+
+### Manual Setup
+
+#### Enable AntiNuke
+
+<CodeGroup>
+
+```bash Syntax
+,antinuke toggle
+```
+
+```bash Example
+,antinuke toggle
+```
+
+</CodeGroup>
+
+#### Set Punishment
 
 <CodeGroup>
 
@@ -47,39 +79,81 @@ The AntiNuke system provides comprehensive protection against malicious actions 
 
 </CodeGroup>
 
+## Protection Modules
+
+### Bot Protection
+- Prevents unauthorized bot additions
+- Configurable threshold for bot joins
+- Automatic punishment for violations
+
+### Role Protection
+- Monitors role creation and deletion
+- Prevents mass role modifications
+- Tracks role permission changes
+
+### Channel Protection
+- Monitors channel creation and deletion
+- Prevents mass channel modifications
+- Tracks channel permission changes
+
+### Webhook Protection
+- Monitors webhook creation and deletion
+- Prevents unauthorized webhook usage
+- Automatic webhook cleanup
+
+### Guild Protection
+- Monitors server settings changes
+- Protects vanity URL changes
+- Tracks server icon and banner changes
+
+### Member Protection
+- Monitors mass kicks and bans
+- Prevents member pruning
+- Tracks member role changes
+
+### Emoji & Sticker Protection
+- Monitors emoji and sticker changes
+- Prevents mass emoji/sticker deletion
+- Tracks emoji/sticker modifications
+
 ## Commands
 
-### Module Management
+### Module Configuration
 
 <CodeGroup>
 
 ```bash Syntax
-,antinuke [module] [true/false]
+,antinuke [module] [on/off] --threshold [number] --do [punishment]
 ```
 
 ```bash Example
-,antinuke botadd true
-,antinuke role true
-,antinuke channel true
-,antinuke webhooks true
-,antinuke guild true
-,antinuke prune true
-,antinuke kick true
-,antinuke ban true
+,antinuke botadd on --threshold 5 --do ban
 ```
 
 </CodeGroup>
 
-### Threshold Settings
+Available modules:
+- `botadd` - Bot join protection
+- `role` - Role modification protection
+- `channel` - Channel modification protection
+- `webhooks` - Webhook protection
+- `guild` - Server settings protection
+- `kick` - Mass kick protection
+- `ban` - Mass ban protection
+- `member_prune` - Member pruning protection
+- `emoji` - Emoji/sticker protection
+- `integration` - Integration protection
+
+### Trust Management
 
 <CodeGroup>
 
 ```bash Syntax
-,antinuke threshold [module] [number]
+,antinuke trust [user]
 ```
 
 ```bash Example
-,antinuke threshold bot_add 10
+,antinuke trust @user
 ```
 
 </CodeGroup>
@@ -90,28 +164,10 @@ The AntiNuke system provides comprehensive protection against malicious actions 
 
 ```bash Syntax
 ,antinuke whitelist [user]
-,antinuke whitelisted
 ```
 
 ```bash Example
 ,antinuke whitelist @user
-,antinuke whitelisted
-```
-
-</CodeGroup>
-
-### Admin Management
-
-<CodeGroup>
-
-```bash Syntax
-,antinuke trust [user]
-,antinuke trusted
-```
-
-```bash Example
-,antinuke trust @user
-,antinuke trusted
 ```
 
 </CodeGroup>
@@ -122,55 +178,41 @@ The AntiNuke system provides comprehensive protection against malicious actions 
 
 ```bash Syntax
 ,antinuke settings
-,antinuke modules
 ```
 
 ```bash Example
 ,antinuke settings
-,antinuke modules
 ```
 
 </CodeGroup>
 
 ## Features
 
-### Protection Modules
-- Bot addition prevention
-- Role modification protection
-- Channel modification protection
-- Webhook creation prevention
-- Guild settings protection
-- Member pruning prevention
-- Kick protection
-- Ban protection
+### Rate Limiting
+- Configurable thresholds per action
+- Time-based rate limiting
+- Automatic punishment triggers
 
-### Security Features
-- Action thresholds
+### Action Tracking
+- Detailed audit log monitoring
+- Action history tracking
+- Violation detection
+
+### Automatic Recovery
+- Channel restoration
+- Role restoration
+- Permission restoration
+- Webhook cleanup
+
+### Trust System
+- Trusted user management
 - Whitelist system
-- Admin management
-- Automatic punishment
-- Audit log monitoring
-- State restoration
-- Rate limiting
-
-### Punishment System
-- Ban option
-- Kick option
-- Role strip option
-- Automatic cleanup
-- Action reversal
-
-### Monitoring
-- Detailed logging
-- Action tracking
-- Threshold monitoring
-- State tracking
-- Audit log analysis
+- Admin permissions
 
 <Warning>
-AntiNuke requires administrator permissions to function properly. Make sure the bot has all necessary permissions.
+Make sure to properly configure trusted users and whitelists to prevent false positives.
 </Warning>
 
 <Note>
-The threshold system allows you to set how many actions can be performed before punishment is applied. Set to 0 to punish immediately.
+For protection against raid attempts, check out our [AntiRaid](/antiraid) documentation.
 </Note> 

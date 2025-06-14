@@ -4,6 +4,14 @@ description: "Protect your server from raid attempts and suspicious joins"
 icon: shield-check
 ---
 
+<Note>
+We've introduced a new interactive security setup command! Use `,security` to configure AntiRaid, AntiNuke, and AutoMod settings through an easy-to-use interface.
+</Note>
+
+<Warning>
+The old configuration methods still work, but we recommend using the new `,security` command for a better setup experience.
+</Warning>
+
 The AntiRaid system provides protection against raid attempts by monitoring member joins, account age, and implementing server lockdown when necessary.
 
 ## Requirements
@@ -19,7 +27,30 @@ The AntiRaid system provides protection against raid attempts by monitoring memb
 
 ## Setup
 
-### Enable AntiRaid
+### Interactive Setup (Recommended)
+
+<CodeGroup>
+
+```bash Syntax
+,security
+```
+
+```bash Example
+,security
+```
+
+</CodeGroup>
+
+This will open an interactive menu where you can:
+- Configure all AntiRaid settings
+- Set up AntiNuke protection
+- Configure AutoMod features
+- Set punishments and thresholds
+- Manage whitelists
+
+### Manual Setup
+
+#### Enable AntiRaid
 
 <CodeGroup>
 
@@ -33,7 +64,7 @@ The AntiRaid system provides protection against raid attempts by monitoring memb
 
 </CodeGroup>
 
-### Set Log Channel
+#### Set Log Channel
 
 <CodeGroup>
 
@@ -141,4 +172,8 @@ The lockdown system will modify channel permissions. Make sure to test it in a s
 
 <Note>
 The system will automatically enable lockdown if more than 5 members join within 60 seconds.
+</Note>
+
+<Note>
+For advanced configuration and protection against server nuking, check out our [AntiNuke](/antinuke) documentation.
 </Note> 
