@@ -1,0 +1,109 @@
+---
+title: "Webhook"
+description: "Flexible webhook management, sending, and editing for your Discord server."
+icon: file-symlink
+---
+
+# Webhook
+
+The Webhook system allows you to create, manage, send, and edit Discord webhooks directly from your server. Use webhooks for advanced integrations, custom notifications, or fun automations—all with powerful scripting and embed support.
+
+## Features
+
+- **Create Webhooks**: Instantly create webhooks in any channel with a custom name and a unique short identifier.
+- **Send Messages/Embeds**: Send messages or rich embeds through your webhooks, including multi-embed support.
+- **Edit Webhook Messages**: Edit previously sent webhook messages by ID.
+- **Delete Webhooks**: Remove webhooks by short ID or selection.
+- **List Webhooks**: View all webhooks created in your server.
+- **Script/Embed Support**: Use the same scripting engine as other modules for advanced formatting.
+- **Selection Support**: Use `select:N` to easily pick webhooks for deletion.
+
+## Requirements
+
+- Bot must have permissions: Manage Webhooks, Send Messages, Embed Links in the target channel.
+
+## Setup & Usage
+
+### Create a Webhook
+
+```bash
+,webhook create <name>
+```
+**Example:**
+```bash
+,webhook create myhook
+```
+Creates a webhook in the current channel and returns a unique short identifier (e.g., `1cc8rax`).
+
+### List Webhooks
+
+```bash
+,webhook list
+```
+Shows all webhooks for your server, including their short IDs, names, and channels.
+
+### Send a Message or Embed
+
+```bash
+,webhook send <short_id> <content>
+```
+- Supports advanced scripting and multiple embeds.
+- Use `--add` to send multiple embeds in one message.
+
+**Examples:**
+```bash
+,webhook send 1cc8rax hello world
+,webhook send 1cc8rax {embed}$v{title: Hello} --add {embed}$v{title: Hi}
+```
+
+### Edit a Webhook Message
+
+```bash
+,webhook edit <#channel> <message_id> <new content>
+```
+- Edits a previously sent webhook message.
+- Supports scripting and multiple embeds with `--add`.
+
+**Example:**
+```bash
+,webhook edit #general 1234567890 {embed}$v{title: Updated Title} --add {embed}$v{title: Another Embed}
+```
+
+### Delete a Webhook
+
+```bash
+,webhook delete <short_id>
+,webhook delete select:N
+```
+- Delete by short ID or use `select:N` to pick from a list.
+
+**Examples:**
+```bash
+,webhook delete 1cc8rax
+,webhook delete select:2
+```
+
+## Scripting & Embeds
+
+- Use the same scripting syntax as the `invoke` and `autoresponder` modules.
+- To send multiple embeds, separate each with `--add`.
+- See the [Script documentation](/script) for advanced usage.
+
+**Example:**
+```bash
+,webhook send 1cc8rax {embed}$v{title: Welcome!}{description: This is an embed} --add {embed}$v{title: Second Embed}
+```
+
+## Best Practices
+
+- Always save your webhook short IDs; you’ll need them to send, edit, or delete messages.
+- Only trusted users should have access to webhook management commands.
+- Use scripting for advanced formatting, buttons, and more.
+
+<Warning>
+Deleting a webhook will also remove all tracking for its sent messages. You will not be able to edit or delete those messages via the bot after deletion.
+</Warning>
+
+<Note>
+Webhooks are powerful—use them responsibly! For more on scripting, see the [Script Reference](/script).
+</Note>
