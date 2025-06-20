@@ -1,0 +1,79 @@
+---
+title: "VoiceMaster"
+description: "Custom VoiceMaster configuration documentation for Premium guilds."
+icon: "disc-3"
+---
+
+With greed Premium you get the additional option to setup custom interfaces as well as adding more than one channel/category, this guide will take you over how to set it up.
+
+## Setting up the custom interface
+The VoiceMaster interface uses the normal script system which you can read more about [here](/resources/scripting). For this example, we will be using our own script.
+
+<CodeGroup>
+
+```bash Syntax
+,voicemaster interface (script)
+```
+
+```bash Example
+,voicemaster interface {embed}{color: #c5a3e0}$v{title: {guild.name} VoiceMaster}$v{description: Click below to control the voicemaster, join the Join to Create channel in order to create a voice master.}$v{thumbnail: {guild.icon}}
+```
+</CodeGroup>
+
+After running the above command, you will get the following interface:
+<Frame>
+  <img src="/images/premium/custom-interface.png" />
+</Frame>
+
+<Info>
+To help guide your members on what buttons do, you can use the following variables which will automatically replace to the VoiceMaster icons:
+`{lock}`, `{unlock}`, `{hide}`, `{reveal}`, `{rename}`, `{claim}`, `{increase}`, `{decrease}`, `{delete}`, `{information}`
+</Info>
+
+With premium you can have up to 3 Join to Create voice channels, each of them can even create the channel in a specific set category, this is how you set it up:
+<CodeGroup>
+
+```bash Syntax
+,voicemaster add (name)
+```
+
+```bash Example
+,voicemaster add j2c
+```
+</CodeGroup>
+
+After running the above, your voice channels will look like this:
+
+<Frame>
+  <img src="/images/premium/j2c.png" />
+</Frame>
+
+<Note>
+You must create the additional voice channels with the `,voicemaster add (name)` command, and NOT manually.
+</Note>
+
+You can then optionally set which category the voice channels should be created in
+<CodeGroup>
+
+```bash Syntax
+,voicemaster category (vc id) (category id)
+```
+
+```bash Example
+,voicemaster category 1385285216268193884 1385285264402026506
+```
+</CodeGroup>
+
+Additional Misc Commands:
+<CodeGroup>
+
+```bash Syntax
+,voicemaster list
+,voicemaster remove (vc id)
+```
+
+```bash Example
+,voicemaster list
+,voicemaster remove 1385285216268193884
+```
+</CodeGroup>

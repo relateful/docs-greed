@@ -35,6 +35,14 @@
             ]
           },
           {
+            "group": "Premium",
+            "pages": [
+              "premium/overview",
+              "premium/voicemaster",
+              "premium/reskin"
+            ]
+          },
+          {
             "group": "Server Configuration",
             "pages": [
               {

@@ -1,0 +1,50 @@
+---
+title: "Reskin"
+description: "Custom VoiceMaster configuration documentation for Premium guilds."
+icon: "webhook"
+---
+
+Reskin is a user premium feature, not a guild wide feature. This feature is not enabled by default and requires server admins to enable it.
+
+<Info>
+Reskin is a feature which allows users to customise the bot's avatar and name, this is done by utilising Discord Webhooks (messages are sent as Webhooks)
+</Info>
+
+## Setting up Reskin in the guild
+<Warning>
+greed will create a webhook in every channel in the server, if you have enabled antinuke/antiraid in another bot, this might cause greed to get kicked/banned from the server.
+</Warning>
+
+<CodeGroup>
+```bash Syntax
+,reskin setup
+```
+</CodeGroup>
+
+This will then allow premium **users** that are in your server to use the following commands:
+<CodeGroup>
+```bash Syntax
+,reskin name (name)
+,reskin avatar (image)
+```
+
+```bash Example
+,reskin name greeds sibling
+,reskin avatar https://r2.greed.best/greedav.png
+```
+</CodeGroup>
+
+greed will then send the messages in webhooks, like this:
+<Frame>
+  <img src="/images/premium/reskin-example.png" />
+</Frame>
+
+## Disabling reskin
+```bash 
+,reskin disable
+```
+
+## Deleting reskin
+```bash
+,reskin delete
+```
