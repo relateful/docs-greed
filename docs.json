@@ -78,7 +78,8 @@
               "server-configuration/restriction",
               "server-configuration/tickets",
               "server-configuration/invoke",
-              "server-configuration/webhooks"
+              "server-configuration/webhooks",
+              "server-configuration/customization"
             ]
           },
           {
