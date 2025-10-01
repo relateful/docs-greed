@@ -79,7 +79,7 @@
               "server-configuration/tickets",
               "server-configuration/invoke",
               "server-configuration/webhooks",
-              "server-configuration/customization"
+              "resources/customization"
             ]
           },
           {
